@@ -138,6 +138,7 @@ jobs:
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+          touch build/web/.nojekyll
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
