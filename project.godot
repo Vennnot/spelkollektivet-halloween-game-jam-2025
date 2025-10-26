@@ -15,6 +15,14 @@ run/main_scene="uid://dxc2ke4hpngc2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://resources/": "yellow",
+"res://scenes/": "green"
+}
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
