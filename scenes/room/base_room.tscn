@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ip2seac8nuj7"]
+[gd_scene load_steps=6 format=3 uid="uid://ip2seac8nuj7"]
 
 [ext_resource type="Script" uid="uid://bjvgfgdvn8a6v" path="res://scenes/room/base_room.gd" id="1_8b43i"]
 [ext_resource type="PackedScene" uid="uid://d0hl3bf6323tt" path="res://scenes/enemies/enemy.tscn" id="1_uidl1"]
+[ext_resource type="Texture2D" uid="uid://dncjb1ixd5vev" path="res://scenes/room/room_background.png" id="2_ge37m"]
 [ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="3_v8xe6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b43i"]
-size = Vector2(62, 110)
+size = Vector2(105, 110)
 
 [node name="BaseRoom" type="Node2D" node_paths=PackedStringArray("hostile_node", "exit_door", "player_spawn")]
 script = ExtResource("1_8b43i")
@@ -13,29 +14,34 @@ hostile_node = NodePath("Hostiles")
 exit_door = NodePath("ExitDoor")
 player_spawn = NodePath("PlayerSpawn")
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_ge37m")
+centered = false
+
 [node name="Entities" type="Node" parent="." groups=["entities"]]
 
 [node name="Hostiles" type="Node" parent="."]
 
 [node name="Enemy" parent="Hostiles" instance=ExtResource("1_uidl1")]
-position = Vector2(589, 447)
+position = Vector2(599, 727)
 
 [node name="Enemy2" parent="Hostiles" instance=ExtResource("1_uidl1")]
-position = Vector2(413, 215)
+position = Vector2(1135, 731)
 
 [node name="Enemy3" parent="Hostiles" instance=ExtResource("1_uidl1")]
-position = Vector2(736, 219)
+position = Vector2(584, 340)
 
 [node name="ExitDoor" type="Area2D" parent="."]
 position = Vector2(1119, 307)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+position = Vector2(582.5, 214)
 shape = SubResource("RectangleShape2D_8b43i")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(79, 310)
+position = Vector2(300, 521)
 
 [node name="Player" parent="." instance=ExtResource("3_v8xe6")]
-position = Vector2(91, 305)
+position = Vector2(312, 516)
 friction = 2200.0
