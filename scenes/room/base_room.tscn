@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ip2seac8nuj7"]
+
+[ext_resource type="Script" uid="uid://bjvgfgdvn8a6v" path="res://scenes/room/base_room.gd" id="1_8b43i"]
+[ext_resource type="PackedScene" uid="uid://d0hl3bf6323tt" path="res://scenes/enemies/enemy.tscn" id="1_uidl1"]
+[ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="3_v8xe6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b43i"]
+size = Vector2(62, 110)
+
+[node name="BaseRoom" type="Node2D" node_paths=PackedStringArray("hostile_node", "exit_door", "player_spawn")]
+script = ExtResource("1_8b43i")
+hostile_node = NodePath("Hostiles")
+exit_door = NodePath("ExitDoor")
+player_spawn = NodePath("PlayerSpawn")
+
+[node name="Entities" type="Node" parent="." groups=["entities"]]
+
+[node name="Hostiles" type="Node" parent="."]
+
+[node name="Enemy" parent="Hostiles" instance=ExtResource("1_uidl1")]
+position = Vector2(589, 447)
+
+[node name="Enemy2" parent="Hostiles" instance=ExtResource("1_uidl1")]
+position = Vector2(413, 215)
+
+[node name="Enemy3" parent="Hostiles" instance=ExtResource("1_uidl1")]
+position = Vector2(736, 219)
+
+[node name="ExitDoor" type="Area2D" parent="."]
+position = Vector2(1119, 307)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+shape = SubResource("RectangleShape2D_8b43i")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(79, 310)
+
+[node name="Player" parent="." instance=ExtResource("3_v8xe6")]
+position = Vector2(91, 305)
+friction = 2200.0
