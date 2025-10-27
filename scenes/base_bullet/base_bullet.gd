@@ -18,3 +18,6 @@ func _physics_process(delta: float) -> void:
 
 func destroy():
 	queue_free()
+
+func _on_hurtbox_component_hit_hitbox(hitbox: HitboxComponent) -> void:
+	destroy()

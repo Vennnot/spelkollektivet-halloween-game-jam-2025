@@ -34,3 +34,5 @@ shape = SubResource("CircleShape2D_fa5mi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7awvf")
+
+[connection signal="hit_hitbox" from="HurtboxComponent" to="." method="_on_hurtbox_component_hit_hitbox"]

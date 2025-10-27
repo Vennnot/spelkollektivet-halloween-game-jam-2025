@@ -5,7 +5,7 @@ const KITSUGIRI := preload("uid://brou6b3nhxkx8")
 
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var sprite: Sprite2D = %Sprite
-@onready var hitbox: HitboxComponent = %HurtBoxArea
+@onready var hitbox: HitboxComponent = %HitboxComponent
 @onready var kitsugiri_timer: Timer = %KitsugiriTimer
 
 var defeated := false
@@ -28,7 +28,7 @@ func _on_hit(hurtbox: HurtboxComponent)->void:
 
 
 func _on_death()->void:
-	sprite.material.shader = KITSUGIRI
+	sprite.material.shader = KITSUGIRI.duplicate()
 	var shader := sprite.material as ShaderMaterial
 	shader.set_shader_parameter("shine_size",10)
 	shader.set_shader_parameter("shine_intensity",1)
