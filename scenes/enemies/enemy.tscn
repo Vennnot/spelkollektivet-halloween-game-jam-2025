@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/enemy.gd" id="1_6xk8f"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_8e3ao"]
-[ext_resource type="PackedScene" uid="uid://gw4mj2s436ci" path="res://components/health_component/health_component.tscn" id="3_38ino"]
+[ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_38ino"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
 radius = 63.49
@@ -10,15 +10,17 @@ radius = 63.49
 [sub_resource type="CircleShape2D" id="CircleShape2D_8e3ao"]
 radius = 88.20431
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_6xk8f")
 
 [node name="Components" type="Node" parent="."]
 
-[node name="HealthComponent" parent="Components" instance=ExtResource("3_38ino")]
+[node name="HealthComponent" type="Node" parent="Components"]
 unique_name_in_owner = true
+script = ExtResource("2_38ino")
+metadata/_custom_type_script = "uid://dn262ns41ewjq"
 
 [node name="Visuals" type="Node2D" parent="."]
 

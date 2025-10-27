@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxxosyemopp30"]
+[gd_scene load_steps=6 format=3 uid="uid://dxxosyemopp30"]
 
 [ext_resource type="Script" uid="uid://2vfvg6d1otcy" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://croi8tiutir16" path="res://scenes/player/junior.png" id="2_gmlin"]
-[ext_resource type="PackedScene" uid="uid://gw4mj2s436ci" path="res://components/health_component/health_component.tscn" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="3_gmlin"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 58.855755
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
+radius = 52.153618
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -23,9 +26,18 @@ debug_color = Color(0.22727832, 0.59934515, 0.6116221, 0.41960785)
 
 [node name="Components" type="Node" parent="."]
 
-[node name="HealthComponent" parent="Components" instance=ExtResource("3_gmlin")]
-health = 3
+[node name="HealthComponent" type="Node" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("3_gmlin")
+metadata/_custom_type_script = "uid://dn262ns41ewjq"
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="ItemArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape" type="CollisionShape2D" parent="ItemArea"]
+shape = SubResource("CircleShape2D_gmlin")
