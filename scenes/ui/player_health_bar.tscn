@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://da4sjey0vcqve"]
+[gd_scene load_steps=3 format=3 uid="uid://da4sjey0vcqve"]
 
 [ext_resource type="Script" uid="uid://ba8mp7cwtld0l" path="res://scenes/ui/player_health_bar.gd" id="1_6bl5u"]
+[ext_resource type="Texture2D" uid="uid://bpv3hmigfp77f" path="res://scenes/pickup/pickup_health/heart.svg" id="2_2cyvc"]
 
 [node name="PlayerHealthBar" type="Control"]
 layout_mode = 3
@@ -20,15 +21,14 @@ offset_bottom = 80.0
 [node name="TextureRect" type="TextureRect" parent="HeartContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+texture = ExtResource("2_2cyvc")
 
 [node name="TextureRect2" type="TextureRect" parent="HeartContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+texture = ExtResource("2_2cyvc")
 
 [node name="TextureRect3" type="TextureRect" parent="HeartContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-
-[node name="TextureRect4" type="TextureRect" parent="HeartContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+texture = ExtResource("2_2cyvc")

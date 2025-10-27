@@ -10,7 +10,8 @@ script = ExtResource("1_oep1y")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 16

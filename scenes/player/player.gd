@@ -22,10 +22,17 @@ func _connect_health_signals():
 func _ready() -> void:
 	health_component.died.connect(_on_death)
 	item_area.area_entered.connect(_on_item_area_entered)
+	_connect_health_signals()
+	
+	await get_tree().create_timer(2).timeout
+	health_component.damage(1)
 
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shoot"):
+		shoot()
+		
+	if Input.is_action_pressed("item_1"):
 		shoot()
 	
 	var input_dir := Input.get_vector("left", "right", "up", "down")
@@ -59,8 +66,9 @@ func _on_death():
 func _on_item_area_entered(other_area:Area2D)->void:
 	var parent :Node = other_area.get_parent()
 	if parent is Pickup:
-		health_component.heal(1)
 		parent.despawn()
+		health_component.heal(1)
 
-func on_health_changed(amount: int):
+
+func on_health_changed():
 	Events.player_health_changed.emit(health_component.health)

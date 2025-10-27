@@ -29,6 +29,7 @@ debug_color = Color(0.22727832, 0.59934515, 0.6116221, 0.41960785)
 [node name="HealthComponent" type="Node" parent="Components"]
 unique_name_in_owner = true
 script = ExtResource("3_gmlin")
+health = 3
 metadata/_custom_type_script = "uid://dn262ns41ewjq"
 
 [node name="AttackTimer" type="Timer" parent="."]
