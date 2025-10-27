@@ -13,10 +13,12 @@ var last_direction := Vector2.RIGHT
 @onready var health_component: HealthComponent = $Components/HealthComponent
 
 @onready var attack_timer: Timer = $AttackTimer
+@onready var item_area: Area2D = %ItemArea
 
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)
+	item_area.area_entered.connect(_on_item_area_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -49,3 +51,10 @@ func shoot():
 
 func _on_death():
 	pass
+
+
+func _on_item_area_entered(other_area:Area2D)->void:
+	var parent :Node = other_area.get_parent()
+	if parent is Pickup:
+		health_component.heal(1)
+		parent.despawn()

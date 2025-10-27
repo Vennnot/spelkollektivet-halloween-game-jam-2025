@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7w0femtixw5y"]
+
+[ext_resource type="Script" uid="uid://d3swkkvtoosis" path="res://scenes/pickup/pickup_health/pickup_health.gd" id="1_fpaht"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="1_qcfu1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khftb"]
+radius = 92.574295
+
+[node name="PickupHealth" type="Node2D"]
+script = ExtResource("1_fpaht")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_qcfu1")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_khftb")

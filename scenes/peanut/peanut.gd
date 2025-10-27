@@ -1,5 +1,5 @@
 class_name Peanut
-extends RigidBody2D
+extends CharacterBody2D
 
 var move_speed := 600.0
 var parent_direction := Vector2.RIGHT
@@ -10,7 +10,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	linear_velocity = parent_direction * move_speed
+	velocity = parent_direction * move_speed
+	move_and_slide()
 
 
 func destroy()->void:

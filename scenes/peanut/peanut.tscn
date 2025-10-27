@@ -9,7 +9,7 @@ radius = 46.615448
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsp3k"]
 radius = 26.925823
 
-[node name="Peanut" type="RigidBody2D"]
+[node name="Peanut" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_ep4c5")
 
