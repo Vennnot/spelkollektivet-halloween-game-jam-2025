@@ -17,6 +17,7 @@ script = ExtResource("1_dovo2")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
+position = Vector2(13.999999, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_gmlin")
 

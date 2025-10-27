@@ -10,6 +10,9 @@ func _ready() -> void:
 	Events.player_health_changed.connect(on_player_health_changed)
 	Events.player_health_added.connect(on_player_health_added)
 
+func set_healthbar():
+	pass
+
 func on_player_health_changed(new_value: int):
 	if new_value >= get_health_containers().size():
 		return

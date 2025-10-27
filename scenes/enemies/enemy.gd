@@ -5,13 +5,13 @@ const KITSUGIRI := preload("uid://brou6b3nhxkx8")
 
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var sprite: Sprite2D = %Sprite
-@onready var hurt_box_area: Area2D = %HurtBoxArea
+@onready var hitbox: HitboxComponent = %HitboxComponent
 @onready var kitsugiri_timer: Timer = %KitsugiriTimer
 
 var defeated := false
 
 func _ready() -> void:
-	hurt_box_area.area_entered.connect(_on_area_entered)
+	hitbox.hitted.connect(_on_hit)
 	health_component.died.connect(_on_death)
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
 	
@@ -22,15 +22,13 @@ func _process(delta: float) -> void:
 	if not defeated:
 		return
 
-func _on_area_entered(other_area:Area2D)->void:
-	var node :Node= other_area.get_parent()
-	if node is Peanut:
-		health_component.damage(1)
-		node.destroy()
+func _on_hit(hurtbox: HurtboxComponent)->void:
+	health_component.damage(hurtbox.damage)
+	hurtbox.queue_free()
 
 
 func _on_death()->void:
-	sprite.material.shader = KITSUGIRI
+	sprite.material.shader = KITSUGIRI.duplicate()
 	var shader := sprite.material as ShaderMaterial
 	shader.set_shader_parameter("shine_size",10)
 	shader.set_shader_parameter("shine_intensity",1)

@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-const PEANUT_SCENE := preload("uid://d0566v4kt6tv")
+const PLAYER_BULLET = preload("uid://cluutx5sqp8ns")
 
 @export var move_speed: float = 400.0
 @export var acceleration: float = 1100.0
@@ -59,10 +59,10 @@ func shoot():
 		return
 	
 	attack_timer.start()
-	var peanut :Peanut= PEANUT_SCENE.instantiate()
+	var peanut : BaseBullet = PLAYER_BULLET.instantiate()
 	get_tree().get_first_node_in_group("entities").add_child(peanut)
 	peanut.global_position = global_position
-	peanut.parent_direction = last_direction
+	peanut.throw(last_direction, 600., 1)
 
 
 func _on_death():
