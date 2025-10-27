@@ -24,7 +24,3 @@ func end_room():
 	print("End of the room")
 	finished = true
 	exit_door.monitorable = true
-	
-#func _on_hostile_death():
-	#if hostile_node.get_child_count() == 0:
-		#end_room()

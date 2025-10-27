@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://icnhely25r5e"]
+
+[ext_resource type="PackedScene" uid="uid://da4sjey0vcqve" path="res://scenes/ui/player_health_bar.tscn" id="1_l8t6x"]
+[ext_resource type="PackedScene" uid="uid://bjwmad464nsia" path="res://scenes/ui/player_objects.tscn" id="2_travt"]
+[ext_resource type="PackedScene" uid="uid://b3ea52vx18l3d" path="res://scenes/ui/boss_objects.tscn" id="3_46cp5"]
+
+[node name="MainUi" type="CanvasLayer"]
+
+[node name="PlayerHealthBar" parent="." instance=ExtResource("1_l8t6x")]
+
+[node name="PlayerObjects" parent="." instance=ExtResource("2_travt")]
+
+[node name="BossObjects" parent="." instance=ExtResource("3_46cp5")]

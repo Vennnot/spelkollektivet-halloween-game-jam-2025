@@ -15,6 +15,9 @@ var last_direction := Vector2.RIGHT
 @onready var attack_timer: Timer = $AttackTimer
 @onready var item_area: Area2D = %ItemArea
 
+func _connect_health_signals():
+	health_component.healed.connect(on_health_changed)
+	health_component.damaged.connect(on_health_changed)
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)
@@ -58,3 +61,6 @@ func _on_item_area_entered(other_area:Area2D)->void:
 	if parent is Pickup:
 		health_component.heal(1)
 		parent.despawn()
+
+func on_health_changed(amount: int):
+	Events.player_health_changed.emit(health_component.health)

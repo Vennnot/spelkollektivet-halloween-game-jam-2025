@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b3ea52vx18l3d"]
+
+[node name="BossObjects" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1112.0
+offset_top = 610.0
+offset_right = 1152.0
+offset_bottom = 650.0

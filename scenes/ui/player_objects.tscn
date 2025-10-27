@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bjwmad464nsia"]
+
+[node name="PlayerObjects" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 605.0
+offset_right = 40.0
+offset_bottom = 645.0
