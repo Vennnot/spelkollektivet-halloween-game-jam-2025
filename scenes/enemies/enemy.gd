@@ -42,6 +42,7 @@ func _on_kitsugiri_timer_timeout()->void:
 	var shader := sprite.material as ShaderMaterial
 	var intensity_value : float= shader.get_shader_parameter("shine_intensity")
 	
+	#TODO vary size?
 	var tween :=create_tween()
 	tween.tween_property(sprite,"material:shader_parameter/shine_intensity",clamp(intensity_value+randf_range(-0.5,0.5),2,3.5),0.6)
 	kitsugiri_timer.start()
