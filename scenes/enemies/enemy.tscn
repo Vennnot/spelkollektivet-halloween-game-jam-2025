@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0hl3bf6323tt"]
+[gd_scene load_steps=8 format=3 uid="uid://d0hl3bf6323tt"]
 
 [ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/enemy.gd" id="1_6xk8f"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_8e3ao"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_38ino"]
+[ext_resource type="Shader" uid="uid://brou6b3nhxkx8" path="res://resources/shaders/kitsugiri.gdshader" id="3_fcftc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lu5c6"]
+shader = ExtResource("3_fcftc")
+shader_parameter/FOAM_COL = Color(0.6955356, 0.6715499, 0.123248376, 1)
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/shine_intensity = 2.0
+shader_parameter/shine_size = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
 radius = 63.49
@@ -25,16 +33,24 @@ metadata/_custom_type_script = "uid://dn262ns41ewjq"
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
-self_modulate = Color(1, 0.38039216, 0.26666668, 1)
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lu5c6")
 texture = ExtResource("2_8e3ao")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 light_mask = 0
 shape = SubResource("CircleShape2D_38ino")
 
 [node name="HurtBoxArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="HurtBoxArea"]
 shape = SubResource("CircleShape2D_8e3ao")
 debug_color = Color(0.8881934, 0.30041605, 0.3553869, 0.41960785)
+
+[node name="KitsugiriTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
