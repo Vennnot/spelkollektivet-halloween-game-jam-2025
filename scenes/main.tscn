@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxc2ke4hpngc2"]
+[gd_scene load_steps=7 format=3 uid="uid://dxc2ke4hpngc2"]
 
 [ext_resource type="Script" uid="uid://c7netl5wnnchy" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://d0hl3bf6323tt" path="res://scenes/enemies/enemy.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c7w0femtixw5y" path="res://scenes/pickup/pickup_health/pickup_health.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://icnhely25r5e" path="res://scenes/ui/main_ui.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dekltjjwowiir" path="res://scenes/item/item.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
@@ -23,3 +24,6 @@ position = Vector2(582, 148)
 position = Vector2(183, 488)
 
 [node name="MainUI" parent="." instance=ExtResource("5_tbgi4")]
+
+[node name="Item" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(130, 206)

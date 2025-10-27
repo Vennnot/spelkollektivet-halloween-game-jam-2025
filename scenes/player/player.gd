@@ -2,16 +2,18 @@ class_name Player
 extends CharacterBody2D
 
 const PLAYER_BULLET = preload("uid://cluutx5sqp8ns")
+const ITEM := preload("res://scenes/item/item.tscn")
 
 @export var move_speed: float = 400.0
 @export var acceleration: float = 1100.0
 @export var friction: float = 1100.0
 
 var last_direction := Vector2.RIGHT
+var on_item :Item= null
+var items : Array[ItemResource] = [null,null,null]
 
 
 @onready var health_component: HealthComponent = $Components/HealthComponent
-
 @onready var attack_timer: Timer = $AttackTimer
 @onready var item_area: Area2D = %ItemArea
 
@@ -22,6 +24,7 @@ func _connect_health_signals():
 func _ready() -> void:
 	health_component.died.connect(_on_death)
 	item_area.area_entered.connect(_on_item_area_entered)
+	item_area.area_exited.connect(_on_item_area_exited)
 	_connect_health_signals()
 	
 	await get_tree().create_timer(2).timeout
@@ -33,13 +36,13 @@ func _physics_process(delta: float) -> void:
 		shoot()
 		
 	if Input.is_action_pressed("item_1"):
-		pass
+		swap_items(1)
 	
 	if Input.is_action_pressed("item_2"):
-		pass
+		swap_items(2)
 	
 	if Input.is_action_pressed("item_3"):
-		pass
+		swap_items(3)
 	
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	
@@ -65,6 +68,24 @@ func shoot():
 	peanut.throw(last_direction, 600., 1)
 
 
+func swap_items(slot:int)->void:
+	if not on_item:
+		return
+	
+	var previous_item := items[slot]
+	items[slot] = on_item.resource
+	Events.item_changed.emit(slot,on_item.resource.sprite)
+	on_item.queue_free()
+	
+	if previous_item == null:
+		return
+	
+	var item :Item= ITEM.instantiate()
+	get_tree().get_first_node_in_group("entities").add_child(item)
+	item.global_position = global_position
+	item.resource = previous_item
+	
+
 func _on_death():
 	pass
 
@@ -74,7 +95,15 @@ func _on_item_area_entered(other_area:Area2D)->void:
 	if parent is Pickup:
 		parent.despawn()
 		health_component.heal(1)
+	elif parent is Item:
+		on_item = parent
 
+
+func _on_item_area_exited(other_area:Area2D)->void:
+	var parent :Node = other_area.get_parent()
+	if parent is Item:
+		on_item = null
+	
 
 func on_health_changed():
 	Events.player_health_changed.emit(health_component.health)
