@@ -9,13 +9,14 @@ const KITSUGIRI := preload("uid://brou6b3nhxkx8")
 @onready var kitsugiri_timer: Timer = %KitsugiriTimer
 
 var defeated := false
+var kitsugiri_shader : Shader
 
 func _ready() -> void:
 	hitbox.hitted.connect(_on_hit)
 	health_component.died.connect(_on_death)
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
 	
-	sprite.material.shader = null
+	kitsugiri_shader = KITSUGIRI.duplicate()
 
 
 func _process(delta: float) -> void:
@@ -28,7 +29,8 @@ func _on_hit(hurtbox: HurtboxComponent)->void:
 
 
 func _on_death()->void:
-	sprite.material.shader = KITSUGIRI.duplicate()
+	sprite.material = ShaderMaterial.new()
+	sprite.material.shader = kitsugiri_shader
 	var shader := sprite.material as ShaderMaterial
 	shader.set_shader_parameter("shine_size",10)
 	shader.set_shader_parameter("shine_intensity",1)
