@@ -1,14 +1,51 @@
 class_name Player
 extends CharacterBody2D
 
-@export var move_speed: float = 10000.0
+const PEANUT_SCENE := preload("uid://d0566v4kt6tv")
+
+@export var move_speed: float = 400.0
+@export var acceleration: float = 1100.0
+@export var friction: float = 1100.0
+
+var last_direction := Vector2.RIGHT
+
+
+@onready var health_component: HealthComponent = $Components/HealthComponent
+
+@onready var attack_timer: Timer = $AttackTimer
+
+
+func _ready() -> void:
+	health_component.died.connect(_on_death)
+
 
 func _physics_process(delta: float) -> void:
-	var input_dir := Input.get_vector("left","right","up","down")
+	if Input.is_action_pressed("shoot"):
+		shoot()
 	
-	# Normalize diagonal movement
+	var input_dir := Input.get_vector("left", "right", "up", "down")
+	
 	if input_dir.length() > 0:
-		input_dir = input_dir.normalized()
+		last_direction = input_dir
+		# Accelerate towards max speed
+		velocity = velocity.move_toward(input_dir * move_speed, acceleration * delta)
+	else:
+		# Apply friction when no input
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	velocity = input_dir * move_speed * delta
 	move_and_slide()
+
+
+func shoot():
+	if not attack_timer.is_stopped():
+		return
+	
+	attack_timer.start()
+	var peanut :Peanut= PEANUT_SCENE.instantiate()
+	get_tree().get_first_node_in_group("entities").add_child(peanut)
+	peanut.global_position = global_position
+	peanut.parent_direction = last_direction
+
+
+func _on_death():
+	pass

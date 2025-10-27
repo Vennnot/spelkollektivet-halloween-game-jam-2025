@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0hl3bf6323tt"]
+
+[ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/enemy.gd" id="1_6xk8f"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_8e3ao"]
+[ext_resource type="PackedScene" uid="uid://gw4mj2s436ci" path="res://components/health_component/health_component.tscn" id="3_38ino"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
+radius = 63.49
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8e3ao"]
+radius = 88.20431
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_6xk8f")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" parent="Components" instance=ExtResource("3_38ino")]
+unique_name_in_owner = true
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(1, 0.38039216, 0.26666668, 1)
+texture = ExtResource("2_8e3ao")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CircleShape2D_38ino")
+
+[node name="HurtBoxArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="HurtBoxArea"]
+shape = SubResource("CircleShape2D_8e3ao")
+debug_color = Color(0.8881934, 0.30041605, 0.3553869, 0.41960785)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0566v4kt6tv"]
+
+[ext_resource type="Script" uid="uid://b6exaw23atsd3" path="res://scenes/peanut/peanut.gd" id="1_ep4c5"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="1_hhqxf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ep4c5"]
+radius = 46.615448
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsp3k"]
+radius = 26.925823
+
+[node name="Peanut" type="RigidBody2D"]
+collision_layer = 4
+script = ExtResource("1_ep4c5")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0.63026667, 0.39649975, 0.16519517, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hhqxf")
+
+[node name="HitBoxArea" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="HitBoxArea"]
+shape = SubResource("CircleShape2D_ep4c5")
+debug_color = Color(0.57163423, 0.5553519, 0.04343319, 0.41960785)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xsp3k")

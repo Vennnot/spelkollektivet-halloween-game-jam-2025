@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3eg5dh8wmism"]
+
+[ext_resource type="Script" uid="uid://em0jmvky42v5" path="res://components/enemy_ability_component/enemy_ability_component.gd" id="1_7ges8"]
+
+[node name="EnemyAbilityComponent" type="Node"]
+script = ExtResource("1_7ges8")
+
+[node name="AbilityCooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="AbilityDurationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
