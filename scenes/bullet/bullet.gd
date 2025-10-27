@@ -1,4 +1,4 @@
-class_name BaseBullet extends CharacterBody2D
+class_name Bullet extends CharacterBody2D
 
 var launched = true
 

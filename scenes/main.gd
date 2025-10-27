@@ -1,6 +1,8 @@
 class_name Main
 extends Node
 
+var active_room : Node
+
 func _ready() -> void:
 	pass
 

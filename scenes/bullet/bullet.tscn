@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1c0lkcdufpcr"]
 
-[ext_resource type="Script" uid="uid://bwpaag2dobema" path="res://scenes/base_bullet/base_bullet.gd" id="1_7awvf"]
+[ext_resource type="Script" uid="uid://bwpaag2dobema" path="res://scenes/bullet/bullet.gd" id="1_7awvf"]
 [ext_resource type="Script" uid="uid://d1jfqtp4jtm3f" path="res://components/boxes/hurtbox_component.gd" id="1_fa5mi"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_7awvf"]
 

@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxxosyemopp30"]
+[gd_scene load_steps=7 format=3 uid="uid://dxxosyemopp30"]
 
 [ext_resource type="Script" uid="uid://2vfvg6d1otcy" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://croi8tiutir16" path="res://scenes/player/junior.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://bulah533v2ju7" path="res://scenes/shooter/shooter.tscn" id="4_lvxji"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
-radius = 58.855755
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvxji"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 52.153618
@@ -22,7 +23,8 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_gmlin")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_lvxji")
+position = Vector2(0, 21)
+shape = SubResource("CapsuleShape2D_lvxji")
 debug_color = Color(0.22727832, 0.59934515, 0.6116221, 0.41960785)
 
 [node name="Components" type="Node" parent="."]
@@ -43,4 +45,8 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ItemArea"]
+visible = false
 shape = SubResource("CircleShape2D_gmlin")
+
+[node name="Shooter" parent="." instance=ExtResource("4_lvxji")]
+unique_name_in_owner = true

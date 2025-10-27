@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvy8uqjpawxjw"]
+
+[ext_resource type="Texture2D" uid="uid://dncjb1ixd5vev" path="res://scenes/rooms/normal_room/room_background.png" id="1_hpdjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0et"]
+size = Vector2(1865, 155.5)
+
+[node name="NormalRoom" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_hpdjv")
+
+[node name="NorthWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -458)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall"]
+shape = SubResource("RectangleShape2D_ne0et")

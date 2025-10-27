@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-const PLAYER_BULLET = preload("uid://cluutx5sqp8ns")
+
 const ITEM := preload("res://scenes/item/item.tscn")
 
 @export var move_speed: float = 400.0
@@ -12,10 +12,15 @@ var last_direction := Vector2.RIGHT
 var on_item :Item= null
 var items : Array[ItemResource] = [null,null,null]
 
+var amount_per_shot := 1
+var time_between_shots := 0.05
+var number_of_shots := 1
+
 
 @onready var health_component: HealthComponent = $Components/HealthComponent
 @onready var attack_timer: Timer = $AttackTimer
 @onready var item_area: Area2D = %ItemArea
+@onready var shooter: Shooter = %Shooter
 
 func _connect_health_signals():
 	health_component.healed.connect(on_health_changed)
@@ -27,8 +32,6 @@ func _ready() -> void:
 	item_area.area_exited.connect(_on_item_area_exited)
 	_connect_health_signals()
 	
-	await get_tree().create_timer(2).timeout
-	health_component.damage(1)
 
 
 func _physics_process(delta: float) -> void:
@@ -62,10 +65,8 @@ func shoot():
 		return
 	
 	attack_timer.start()
-	var peanut : BaseBullet = PLAYER_BULLET.instantiate()
-	get_tree().get_first_node_in_group("entities").add_child(peanut)
-	peanut.global_position = global_position
-	peanut.throw(last_direction, 600., 1)
+	shooter.shoot(last_direction, amount_per_shot, time_between_shots,number_of_shots,items)
+
 
 
 func swap_items(slot:int)->void:
@@ -76,6 +77,7 @@ func swap_items(slot:int)->void:
 	items[slot] = on_item.resource
 	Events.item_changed.emit(slot,on_item.resource.sprite)
 	on_item.queue_free()
+	check_items()
 	
 	if previous_item == null:
 		return
@@ -84,7 +86,19 @@ func swap_items(slot:int)->void:
 	get_tree().get_first_node_in_group("entities").add_child(item)
 	item.global_position = global_position
 	item.resource = previous_item
-	
+
+
+func check_items():
+	number_of_shots = 1
+	amount_per_shot = 1
+	for item in items:
+		if not item:
+			continue
+		elif item.id == "watermelon":
+			number_of_shots = 3
+		elif item.id == "nuts":
+			amount_per_shot = 1
+
 
 func _on_death():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxc2ke4hpngc2"]
+[gd_scene load_steps=8 format=3 uid="uid://dxc2ke4hpngc2"]
 
 [ext_resource type="Script" uid="uid://c7netl5wnnchy" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="2_0wfyh"]
@@ -6,19 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://c7w0femtixw5y" path="res://scenes/pickup/pickup_health/pickup_health.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://icnhely25r5e" path="res://scenes/ui/main_ui.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dekltjjwowiir" path="res://scenes/item/item.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cvy8uqjpawxjw" path="res://scenes/rooms/normal_room/normal_room.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
 
-[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
-
 [node name="Entities" type="Node" parent="." groups=["entities"]]
+
+[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(979, 397)
 
 [node name="Enemy" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(323, 161)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(582, 148)
 
 [node name="PickupHealth" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(183, 488)
@@ -27,3 +26,7 @@ position = Vector2(183, 488)
 
 [node name="Item" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(130, 206)
+
+[node name="NormalRoom" parent="." instance=ExtResource("7_o6xl0")]
+z_index = -10
+position = Vector2(1147, 476)
