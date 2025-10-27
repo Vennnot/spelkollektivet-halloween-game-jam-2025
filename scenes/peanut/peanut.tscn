@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b6exaw23atsd3" path="res://scenes/peanut/peanut.gd" id="1_ep4c5"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="1_hhqxf"]
+[ext_resource type="Script" uid="uid://d1jfqtp4jtm3f" path="res://components/boxes/hurtbox_component.gd" id="3_xsp3k"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ep4c5"]
-radius = 46.615448
+[sub_resource type="CircleShape2D" id="CircleShape2D_tieel"]
+radius = 37.01351
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xsp3k"]
-radius = 26.925823
-
-[node name="Peanut" type="CharacterBody2D"]
-collision_layer = 4
+[node name="Peanut" type="Node2D"]
 script = ExtResource("1_ep4c5")
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -20,11 +17,9 @@ self_modulate = Color(0.63026667, 0.39649975, 0.16519517, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_hhqxf")
 
-[node name="HitBoxArea" type="Area2D" parent="."]
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("3_xsp3k")
+metadata/_custom_type_script = "uid://d1jfqtp4jtm3f"
 
-[node name="CollisionShape" type="CollisionShape2D" parent="HitBoxArea"]
-shape = SubResource("CircleShape2D_ep4c5")
-debug_color = Color(0.57163423, 0.5553519, 0.04343319, 0.41960785)
-
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xsp3k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_tieel")

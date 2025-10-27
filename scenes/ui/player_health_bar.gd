@@ -6,6 +6,9 @@ class_name PlayerHealthBar extends Control
 func _ready() -> void:
 	Events.player_health_changed.connect(on_player_health_changed)
 
+func set_healthbar():
+	pass
+
 func on_player_health_changed(new_value: int):
 	var index = 0
 	for icon : TextureRect in heart_container.get_children():

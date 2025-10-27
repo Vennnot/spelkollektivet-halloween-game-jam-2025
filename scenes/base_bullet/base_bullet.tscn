@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1c0lkcdufpcr"]
+
+[ext_resource type="Script" uid="uid://bwpaag2dobema" path="res://scenes/base_bullet/base_bullet.gd" id="1_7awvf"]
+[ext_resource type="Script" uid="uid://d1jfqtp4jtm3f" path="res://components/boxes/hurtbox_component.gd" id="1_fa5mi"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_7awvf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fa5mi"]
+radius = 14.035668
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7awvf"]
+radius = 11.0
+
+[node name="BaseBullet" type="CharacterBody2D"]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_7awvf")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7awvf")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+script = ExtResource("1_fa5mi")
+metadata/_custom_type_script = "uid://d1jfqtp4jtm3f"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_fa5mi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7awvf")
