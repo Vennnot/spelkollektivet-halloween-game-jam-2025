@@ -33,7 +33,13 @@ func _physics_process(delta: float) -> void:
 		shoot()
 		
 	if Input.is_action_pressed("item_1"):
-		shoot()
+		pass
+	
+	if Input.is_action_pressed("item_2"):
+		pass
+	
+	if Input.is_action_pressed("item_3"):
+		pass
 	
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	
