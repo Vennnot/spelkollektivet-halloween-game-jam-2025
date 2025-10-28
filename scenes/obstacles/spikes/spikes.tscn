@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://o7lc5fqt27oc"]
+
+[ext_resource type="Script" uid="uid://dvqeh8htkdxc2" path="res://scenes/obstacles/spikes/spikes.gd" id="1_1gylt"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_vikks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6l74"]
+size = Vector2(122, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sixpy"]
+size = Vector2(124, 124)
+
+[node name="Spikes" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_1gylt")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0.13612702, 0, 0.9670587, 1)
+texture = ExtResource("2_vikks")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_v6l74")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("RectangleShape2D_sixpy")

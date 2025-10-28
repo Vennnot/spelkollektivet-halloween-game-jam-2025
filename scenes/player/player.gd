@@ -5,6 +5,8 @@ extends CharacterBody2D
 const ITEM := preload("res://scenes/item/item.tscn")
 
 @export var move_speed: float = 400.0
+@export var base_speed : float = 400.0
+@export var slow_speed : float = 200.0
 @export var acceleration: float = 1500.0
 @export var friction: float = 1500.0
 
@@ -21,17 +23,31 @@ var number_of_shots := 1
 @onready var attack_timer: Timer = $AttackTimer
 @onready var item_area: Area2D = %ItemArea
 @onready var shooter: Shooter = %Shooter
+@onready var invul_timer: Timer = %InvulTimer
 
 func _connect_health_signals():
 	health_component.healed.connect(on_health_changed)
 	health_component.damaged.connect(on_health_changed)
 
 func _ready() -> void:
+	invul_timer.timeout.connect(_on_invul_timer_timeout)
 	health_component.died.connect(_on_death)
+	health_component.damaged.connect(_on_damaged)
 	item_area.area_entered.connect(_on_item_area_entered)
 	item_area.area_exited.connect(_on_item_area_exited)
 	_connect_health_signals()
-	
+
+
+func _on_invul_timer_timeout():
+	health_component.disabled=false
+	for area in item_area.get_overlapping_areas():
+		if area.get_parent() is Spikes:
+			health_component.damage(1)
+
+
+func _on_damaged():
+	invul_timer.start()
+	health_component.disabled = true
 
 
 func _physics_process(delta: float) -> void:
@@ -111,12 +127,18 @@ func _on_item_area_entered(other_area:Area2D)->void:
 		health_component.heal(1)
 	elif parent is Item:
 		on_item = parent
+	elif parent is Web:
+		move_speed = slow_speed
+	elif parent is Spikes:
+		health_component.damage(1)
 
 
 func _on_item_area_exited(other_area:Area2D)->void:
 	var parent :Node = other_area.get_parent()
 	if parent is Item:
 		on_item = null
+	elif parent is Web:
+		move_speed = base_speed
 	
 
 func on_health_changed():

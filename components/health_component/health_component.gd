@@ -9,6 +9,7 @@ signal healed
 @export var health : int = 1 : set = _set_health
 
 var health_depleted : bool = false
+var disabled := false
 
 
 func _set_health(value:int):
@@ -22,7 +23,7 @@ func _set_health(value:int):
 
 
 func heal(value:int):
-	if health_depleted:
+	if health_depleted or disabled:
 		return
 	
 	health += value
@@ -30,7 +31,7 @@ func heal(value:int):
 
 
 func damage(value:int):
-	if health_depleted:
+	if health_depleted or disabled:
 		return
 	
 	self.health -= value

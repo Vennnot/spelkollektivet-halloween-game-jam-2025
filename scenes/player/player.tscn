@@ -12,6 +12,7 @@ radius = 8.0
 radius = 52.153618
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
 collision_layer = 2
 script = ExtResource("1_dovo2")
 
@@ -42,7 +43,7 @@ one_shot = true
 [node name="ItemArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
-collision_mask = 16
+collision_mask = 48
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ItemArea"]
 visible = false
@@ -50,3 +51,8 @@ shape = SubResource("CircleShape2D_gmlin")
 
 [node name="Shooter" parent="." instance=ExtResource("4_lvxji")]
 unique_name_in_owner = true
+
+[node name="InvulTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
