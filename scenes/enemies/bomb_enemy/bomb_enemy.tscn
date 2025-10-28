@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmc3p7oryp51n"]
+
+[ext_resource type="Script" uid="uid://1gnkhaj3ra8k" path="res://scenes/enemies/bomb_enemy/bomb_enemy.gd" id="1_nd0v1"]
+[ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_ri1i3"]
+[ext_resource type="Script" uid="uid://dx6clvwpdouph" path="res://components/movement_component/linear_movement_component.gd" id="3_a5nap"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="4_prewi"]
+[ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_bjihd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
+radius = 63.49
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nb6gf"]
+radius = 49.09175
+
+[node name="BombEnemy" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "movement_component", "hitbox")]
+collision_layer = 8
+script = ExtResource("1_nd0v1")
+health_component = NodePath("Components/HealthComponent")
+movement_component = NodePath("Components/LinearMovementComponent")
+hitbox = NodePath("HitboxComponent")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" type="Node" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("2_ri1i3")
+metadata/_custom_type_script = "uid://dn262ns41ewjq"
+
+[node name="LinearMovementComponent" type="Node2D" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("3_a5nap")
+move_speed = 350.0
+metadata/_custom_type_script = "uid://dx6clvwpdouph"
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+texture = ExtResource("4_prewi")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CircleShape2D_38ino")
+
+[node name="KitsugiriTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_bjihd")
+metadata/_custom_type_script = "uid://ce6uegni6rea1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_nb6gf")

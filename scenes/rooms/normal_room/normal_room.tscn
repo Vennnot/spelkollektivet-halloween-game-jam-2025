@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvy8uqjpawxjw"]
 
-[ext_resource type="Texture2D" uid="uid://dncjb1ixd5vev" path="res://scenes/rooms/normal_room/room_background.png" id="1_hpdjv"]
 [ext_resource type="Script" uid="uid://p31jsoyv4h7x" path="res://scenes/rooms/normal_room/normal_room.gd" id="1_lmq5k"]
+[ext_resource type="Texture2D" uid="uid://bfydio5jq0bet" path="res://scenes/rooms/normal_room/Room.png" id="2_lmq5k"]
 [ext_resource type="PackedScene" uid="uid://davbt5dqhtrqf" path="res://scenes/rooms/normal_room/door.tscn" id="2_ne0et"]
 [ext_resource type="Texture2D" uid="uid://b0kyxk525at1j" path="res://scenes/rooms/side_door.png" id="3_s8k6y"]
 
@@ -17,7 +17,7 @@ script = ExtResource("1_lmq5k")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("1_hpdjv")
+texture = ExtResource("2_lmq5k")
 
 [node name="Walls" type="Node2D" parent="."]
 

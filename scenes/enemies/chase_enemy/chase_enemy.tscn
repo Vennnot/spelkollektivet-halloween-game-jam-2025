@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0hl3bf6323tt"]
+[gd_scene load_steps=8 format=3 uid="uid://d0hl3bf6323tt"]
 
-[ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/enemy.gd" id="1_6xk8f"]
+[ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/chase_enemy/chase_enemy.gd" id="1_6xk8f"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_8e3ao"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_38ino"]
+[ext_resource type="Script" uid="uid://dx6clvwpdouph" path="res://components/movement_component/linear_movement_component.gd" id="3_lu5c6"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_lu5c6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
@@ -11,10 +12,12 @@ radius = 63.49
 [sub_resource type="CircleShape2D" id="CircleShape2D_nb6gf"]
 radius = 49.09175
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="ChaseEnemy" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "movement_component", "hitbox")]
 collision_layer = 8
-collision_mask = 5
 script = ExtResource("1_6xk8f")
+health_component = NodePath("Components/HealthComponent")
+movement_component = NodePath("Components/LinearMovementComponent")
+hitbox = NodePath("HitboxComponent")
 
 [node name="Components" type="Node" parent="."]
 
@@ -23,14 +26,19 @@ unique_name_in_owner = true
 script = ExtResource("2_38ino")
 metadata/_custom_type_script = "uid://dn262ns41ewjq"
 
+[node name="LinearMovementComponent" type="Node2D" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("3_lu5c6")
+metadata/_custom_type_script = "uid://dx6clvwpdouph"
+
 [node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
 texture = ExtResource("2_8e3ao")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 light_mask = 0
 shape = SubResource("CircleShape2D_38ino")
 
@@ -42,10 +50,9 @@ one_shot = true
 [node name="HitboxComponent" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 8
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("5_lu5c6")
 metadata/_custom_type_script = "uid://ce6uegni6rea1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-visible = false
 shape = SubResource("CircleShape2D_nb6gf")

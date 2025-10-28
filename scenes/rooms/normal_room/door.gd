@@ -11,6 +11,8 @@ var unlocked : bool = true :
 func _ready() -> void:
 	area_2d.area_entered.connect(_on_area_entered)
 	area_2d.area_exited.connect(_on_area_exited)
+	if not connected_door:
+		queue_free()
 
 
 func room_finished():

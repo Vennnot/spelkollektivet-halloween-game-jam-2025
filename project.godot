@@ -51,6 +51,7 @@ folder_colors={
 [global_group]
 
 entities="enemies, projectiles, drops, etc"
+player=""
 
 [input]
 

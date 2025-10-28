@@ -3,13 +3,17 @@ extends CharacterBody2D
 
 const KITSUGIRI := preload("uid://brou6b3nhxkx8")
 
-@onready var health_component: HealthComponent = %HealthComponent
+@export var health_component: HealthComponent
+@export var movement_component: MovementComponent
+@export var hitbox: HitboxComponent
+
 @onready var sprite: Sprite2D = %Sprite
-@onready var hitbox: HitboxComponent = %HitboxComponent
 @onready var kitsugiri_timer: Timer = %KitsugiriTimer
+@onready var visuals: Node2D = %Visuals
 
 var defeated := false
 var kitsugiri_shader : Shader
+var player : Player
 
 func _ready() -> void:
 	hitbox.hitted.connect(_on_hit)
@@ -17,11 +21,22 @@ func _ready() -> void:
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
 	
 	kitsugiri_shader = KITSUGIRI.duplicate()
+	player = get_tree().get_first_node_in_group("player")
+	
 
 
-func _process(delta: float) -> void:
-	if not defeated:
+func _physics_process(delta: float) -> void:
+	if defeated:
 		return
+	
+	if not player:
+		return
+	
+	var distance := global_position.distance_to(player.global_position)
+	
+	velocity = movement_component.calculate_velocity(player.global_position, delta, distance, velocity)
+	move_and_slide()
+	
 
 func _on_hit(hurtbox: HurtboxComponent)->void:
 	health_component.damage(hurtbox.damage)
