@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxc2ke4hpngc2"]
+[gd_scene load_steps=9 format=3 uid="uid://dxc2ke4hpngc2"]
 
 [ext_resource type="Script" uid="uid://c7netl5wnnchy" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="2_0wfyh"]
@@ -7,26 +7,48 @@
 [ext_resource type="PackedScene" uid="uid://icnhely25r5e" path="res://scenes/ui/main_ui.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dekltjjwowiir" path="res://scenes/item/item.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cvy8uqjpawxjw" path="res://scenes/rooms/normal_room/normal_room.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://dyjp1p2chb4uv" path="res://scenes/camera.gd" id="8_tipki"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
 
 [node name="Entities" type="Node" parent="." groups=["entities"]]
 
-[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(979, 397)
+[node name="Player" parent="Entities" instance=ExtResource("2_0wfyh")]
+position = Vector2(6, 6)
 
-[node name="Enemy" parent="." instance=ExtResource("3_sugp2")]
+[node name="PickupHealth" parent="Entities" instance=ExtResource("4_jyhfs")]
+position = Vector2(183, 488)
+
+[node name="Item" parent="Entities" instance=ExtResource("6_tefeu")]
+position = Vector2(130, 206)
+
+[node name="Enemy" parent="Entities" instance=ExtResource("3_sugp2")]
 position = Vector2(323, 161)
 
-[node name="PickupHealth" parent="." instance=ExtResource("4_jyhfs")]
-position = Vector2(183, 488)
+[node name="Map" type="Node" parent="."]
+
+[node name="NormalRoom1" parent="Map" instance=ExtResource("7_o6xl0")]
+z_index = -10
+
+[node name="EastDoor" parent="Map/NormalRoom1/Doors" index="2" node_paths=PackedStringArray("connected_door")]
+connected_door = NodePath("../../../NormalRoom2/Doors/WestDoor")
+
+[node name="NormalRoom2" parent="Map" instance=ExtResource("7_o6xl0")]
+z_index = -10
+position = Vector2(2017, 0)
+
+[node name="WestDoor" parent="Map/NormalRoom2/Doors" index="3" node_paths=PackedStringArray("connected_door")]
+connected_door = NodePath("../../../NormalRoom1/Doors/EastDoor")
 
 [node name="MainUI" parent="." instance=ExtResource("5_tbgi4")]
 
-[node name="Item" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(130, 206)
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("8_tipki")
 
-[node name="NormalRoom" parent="." instance=ExtResource("7_o6xl0")]
-z_index = -10
-position = Vector2(1147, 476)
+[editable path="Map/NormalRoom1"]
+[editable path="Map/NormalRoom1/Doors/EastDoor"]
+[editable path="Map/NormalRoom1/Doors/WestDoor"]
+[editable path="Map/NormalRoom2"]
+[editable path="Map/NormalRoom2/Doors/EastDoor"]
+[editable path="Map/NormalRoom2/Doors/WestDoor"]

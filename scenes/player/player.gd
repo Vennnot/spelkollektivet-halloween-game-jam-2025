@@ -5,8 +5,8 @@ extends CharacterBody2D
 const ITEM := preload("res://scenes/item/item.tscn")
 
 @export var move_speed: float = 400.0
-@export var acceleration: float = 1100.0
-@export var friction: float = 1100.0
+@export var acceleration: float = 1500.0
+@export var friction: float = 1500.0
 
 var last_direction := Vector2.RIGHT
 var on_item :Item= null

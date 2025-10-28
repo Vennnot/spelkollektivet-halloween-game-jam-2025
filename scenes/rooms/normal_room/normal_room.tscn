@@ -1,20 +1,88 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvy8uqjpawxjw"]
+[gd_scene load_steps=7 format=3 uid="uid://cvy8uqjpawxjw"]
 
 [ext_resource type="Texture2D" uid="uid://dncjb1ixd5vev" path="res://scenes/rooms/normal_room/room_background.png" id="1_hpdjv"]
+[ext_resource type="Script" uid="uid://p31jsoyv4h7x" path="res://scenes/rooms/normal_room/normal_room.gd" id="1_lmq5k"]
+[ext_resource type="PackedScene" uid="uid://davbt5dqhtrqf" path="res://scenes/rooms/normal_room/door.tscn" id="2_ne0et"]
+[ext_resource type="Texture2D" uid="uid://b0kyxk525at1j" path="res://scenes/rooms/side_door.png" id="3_s8k6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0et"]
 size = Vector2(1865, 155.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8k6y"]
+size = Vector2(219, 871)
+
 [node name="NormalRoom" type="Node2D"]
+script = ExtResource("1_lmq5k")
 
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("1_hpdjv")
 
-[node name="NorthWall" type="StaticBody2D" parent="."]
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="NorthWall" type="StaticBody2D" parent="Walls"]
 position = Vector2(0, -458)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NorthWall"]
 shape = SubResource("RectangleShape2D_ne0et")
+
+[node name="WestWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-429, -127)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WestWall"]
+position = Vector2(-414, 147)
+shape = SubResource("RectangleShape2D_s8k6y")
+
+[node name="EastWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(1255, -115)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/EastWall"]
+position = Vector2(-414, 147)
+shape = SubResource("RectangleShape2D_s8k6y")
+
+[node name="SouthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 460)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SouthWall"]
+shape = SubResource("RectangleShape2D_ne0et")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="NorthDoor" parent="Doors" instance=ExtResource("2_ne0et")]
+position = Vector2(0, -439)
+
+[node name="SouthDoor" parent="Doors" instance=ExtResource("2_ne0et")]
+position = Vector2(-4, 442)
+rotation = 3.1415927
+
+[node name="EastDoor" parent="Doors" instance=ExtResource("2_ne0et")]
+position = Vector2(823, -36)
+rotation = 3.1415927
+
+[node name="Sprite" parent="Doors/EastDoor/Visuals" index="0"]
+texture = ExtResource("3_s8k6y")
+
+[node name="Area2D" parent="Doors/EastDoor" index="1"]
+position = Vector2(89.99999, -3.0000076)
+rotation = 1.5707964
+
+[node name="WestDoor" parent="Doors" instance=ExtResource("2_ne0et")]
+position = Vector2(-823, -36)
+
+[node name="Sprite" parent="Doors/WestDoor/Visuals" index="0"]
+texture = ExtResource("3_s8k6y")
+
+[node name="Area2D" parent="Doors/WestDoor" index="1"]
+position = Vector2(81, -3)
+rotation = 1.5707964
+
+[node name="CameraPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[editable path="Doors/EastDoor"]
+[editable path="Doors/WestDoor"]
