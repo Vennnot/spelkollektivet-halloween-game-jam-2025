@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd1vjws6681ft"]
+
+[ext_resource type="Script" uid="uid://ch30ll8l2bjat" path="res://scenes/enemies/shoot_enemy/shoot_enemy.gd" id="1_3n3bm"]
+[ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_cn1vm"]
+[ext_resource type="Script" uid="uid://ceu11hdslmfvb" path="res://components/movement_component/distance_movement_component.gd" id="3_3n3bm"]
+[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="4_taigr"]
+[ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_7aj1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
+radius = 63.49
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nb6gf"]
+radius = 49.09175
+
+[node name="ShootEnemy" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "movement_component", "hitbox")]
+collision_layer = 8
+script = ExtResource("1_3n3bm")
+health_component = NodePath("Components/HealthComponent")
+movement_component = NodePath("Components/DistanceMovementComponent")
+hitbox = NodePath("HitboxComponent")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" type="Node" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("2_cn1vm")
+metadata/_custom_type_script = "uid://dn262ns41ewjq"
+
+[node name="DistanceMovementComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_3n3bm")
+metadata/_custom_type_script = "uid://ceu11hdslmfvb"
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+texture = ExtResource("4_taigr")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CircleShape2D_38ino")
+
+[node name="KitsugiriTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("5_7aj1q")
+metadata/_custom_type_script = "uid://ce6uegni6rea1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_nb6gf")
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.8
+autostart = true

@@ -10,8 +10,8 @@ func pulse_effect(total_time: float, cycles: int, scale_increase_percent: float,
 	if cycles <= 0:
 		return
 	
-	var base_scale := visuals.scale
-	var base_modulate := visuals.modulate  # Changed from modulate
+	var base_scale := sprite.scale
+	var base_modulate := sprite.modulate  # Changed from modulate
 	var target_color := Color.RED
 	
 	# Calculate time distribution for accelerating cycles

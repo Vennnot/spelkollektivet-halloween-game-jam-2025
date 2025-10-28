@@ -21,6 +21,9 @@ func _ready() -> void:
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
 	
 	kitsugiri_shader = KITSUGIRI.duplicate()
+	
+	await get_tree().create_timer(0.1).timeout
+	
 	player = get_tree().get_first_node_in_group("player")
 	
 
@@ -36,7 +39,6 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = movement_component.calculate_velocity(player.global_position, delta, distance, velocity)
 	move_and_slide()
-	
 
 func _on_hit(hurtbox: HurtboxComponent)->void:
 	health_component.damage(hurtbox.damage)
@@ -44,6 +46,10 @@ func _on_hit(hurtbox: HurtboxComponent)->void:
 
 
 func _on_death()->void:
+	visuals.modulate = Color.WHITE
+	sprite.modulate = Color.WHITE
+	visuals.self_modulate = Color.WHITE
+	sprite.self_modulate = Color.WHITE
 	sprite.material = ShaderMaterial.new()
 	sprite.material.shader = kitsugiri_shader
 	var shader := sprite.material as ShaderMaterial
