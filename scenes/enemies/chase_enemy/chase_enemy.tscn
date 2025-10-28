@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0hl3bf6323tt"]
 
 [ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/chase_enemy/chase_enemy.gd" id="1_6xk8f"]
-[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_8e3ao"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_38ino"]
 [ext_resource type="Script" uid="uid://dx6clvwpdouph" path="res://components/movement_component/linear_movement_component.gd" id="3_lu5c6"]
+[ext_resource type="Texture2D" uid="uid://ba5msajgwaohx" path="res://scenes/enemies/chase_enemy/Vase4.png" id="4_w6axa"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_lu5c6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
-radius = 63.49
+radius = 35.510563
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nb6gf"]
-radius = 49.09175
+radius = 73.02739
 
 [node name="ChaseEnemy" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "movement_component", "hitbox")]
 collision_layer = 8
@@ -36,10 +36,12 @@ unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
-texture = ExtResource("2_8e3ao")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_w6axa")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 light_mask = 0
+position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_38ino")
 
 [node name="KitsugiriTimer" type="Timer" parent="."]

@@ -67,3 +67,4 @@ func _on_kitsugiri_timer_timeout()->void:
 	var tween :=create_tween()
 	tween.tween_property(sprite,"material:shader_parameter/shine_intensity",clamp(intensity_value+randf_range(-0.5,0.5),2,3.5),0.6)
 	kitsugiri_timer.start()
+	queue_free()

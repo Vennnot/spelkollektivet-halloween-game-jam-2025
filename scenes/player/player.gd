@@ -112,8 +112,8 @@ func check_items():
 			continue
 		elif item.id == "watermelon":
 			number_of_shots = 3
-		elif item.id == "nuts":
-			amount_per_shot = 1
+		elif item.id == "chestnut":
+			amount_per_shot = 2
 
 
 func _on_death():

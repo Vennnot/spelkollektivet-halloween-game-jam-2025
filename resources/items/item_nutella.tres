@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cw0n2xvx7konc"]
+
+[ext_resource type="Script" uid="uid://tw5ekslcqelu" path="res://resources/items/item_resource.gd" id="1_7avef"]
+[ext_resource type="Texture2D" uid="uid://bmw3hku8ekidj" path="res://resources/items/mushroom_brown.svg" id="2_gdpns"]
+
+[resource]
+script = ExtResource("1_7avef")
+id = "nutella"
+sprite = ExtResource("2_gdpns")
+metadata/_custom_type_script = "uid://tw5ekslcqelu"

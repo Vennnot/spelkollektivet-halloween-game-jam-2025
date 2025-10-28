@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://csu6ww5nte5m0"]
+
+[ext_resource type="Script" uid="uid://tw5ekslcqelu" path="res://resources/items/item_resource.gd" id="1_xanyc"]
+[ext_resource type="Texture2D" uid="uid://bmw3hku8ekidj" path="res://resources/items/mushroom_brown.svg" id="2_yyn7j"]
+
+[resource]
+script = ExtResource("1_xanyc")
+id = "pomegranate"
+sprite = ExtResource("2_yyn7j")
+metadata/_custom_type_script = "uid://tw5ekslcqelu"

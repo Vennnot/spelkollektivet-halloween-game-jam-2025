@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://b8o4y0ri5mtbg" path="res://scenes/enemies/spawn_enemy/spawn_enemy.gd" id="1_v8iq8"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_5s2lb"]
 [ext_resource type="Script" uid="uid://ceu11hdslmfvb" path="res://components/movement_component/distance_movement_component.gd" id="3_ba6ck"]
-[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="4_yxjbx"]
+[ext_resource type="Texture2D" uid="uid://b6au8ja3d5n74" path="res://scenes/enemies/spawn_enemy/Vase3.png" id="4_v8iq8"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_otthj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
-radius = 63.49
+radius = 54.147945
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nb6gf"]
-radius = 49.09175
+radius = 97.082436
 
 [node name="SpawnEnemy" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "movement_component", "hitbox")]
 collision_layer = 8
@@ -35,7 +35,8 @@ unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
-texture = ExtResource("4_yxjbx")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_v8iq8")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 light_mask = 0
