@@ -12,7 +12,7 @@ func _ready():
 	# Connect on area entered to our hurtbox entered function
 	area_entered.connect(_on_hitbox_entered)
 
-func _on_hitbox_entered(hitbox: HitboxComponent):
+func _on_hitbox_entered(hitbox:Area2D):
 	# Make sure the area we are overlapping is a hitbox
 	if not hitbox is HitboxComponent: return
 	# Make sure the hitbox isn't invincible

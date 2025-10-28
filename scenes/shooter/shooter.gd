@@ -1,7 +1,7 @@
 class_name Shooter
 extends Node2D
 
-const BULLET = preload("uid://c1c0lkcdufpcr")
+@export var bullet_scene :PackedScene
 
 func _ready() -> void:
 	pass
@@ -20,7 +20,7 @@ func shoot(direction:Vector2, amount_per_shot:int, time_between_shots:float, num
 
 
 func spawn_bullet()->Bullet:
-	var bullet : Bullet = BULLET.instantiate()
+	var bullet : Bullet = bullet_scene.instantiate()
 	get_tree().get_first_node_in_group("entities").add_child(bullet)
 	bullet.global_position = global_position
 	return bullet

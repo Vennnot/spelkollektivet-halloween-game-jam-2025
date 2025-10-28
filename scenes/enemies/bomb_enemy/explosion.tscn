@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dke1jixbfq6sh"]
+
+[ext_resource type="Script" uid="uid://farvw2ixyx7q" path="res://scenes/enemies/bomb_enemy/explosion.gd" id="1_hgyry"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nglx2"]
+radius = 83.00603
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_hgyry")
+
+[node name="DamageArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_nglx2")

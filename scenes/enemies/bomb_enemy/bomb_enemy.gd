@@ -1,6 +1,7 @@
 class_name BombEnemy
 extends Enemy
 
+const EXPLOSION = preload("uid://dke1jixbfq6sh")
 
 func _ready() -> void:
 	super._ready()
@@ -43,5 +44,7 @@ func pulse_effect(total_time: float, cycles: int, scale_increase_percent: float,
 	explode()
 
 func explode():
-	#explode!
+	var explosion := EXPLOSION.instantiate()
+	get_tree().get_first_node_in_group("entities").add_child(explosion)
+	explosion.global_position = global_position
 	queue_free()

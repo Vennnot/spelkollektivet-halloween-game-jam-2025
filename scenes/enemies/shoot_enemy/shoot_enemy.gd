@@ -2,6 +2,7 @@ class_name ShootEnemy
 extends Enemy
 
 @onready var shoot_timer: Timer = %ShootTimer
+@onready var shooter: Shooter = %Shooter
 
 func _ready() -> void:
 	super._ready()
@@ -20,4 +21,5 @@ func _on_shoot_timer_timeout()->void:
 
 
 func shoot():
-	pass
+	var direction := global_position.direction_to(player.global_position)
+	shooter.shoot(direction,1,1,1,[])

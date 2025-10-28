@@ -43,7 +43,7 @@ one_shot = true
 [node name="ItemArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
-collision_mask = 48
+collision_mask = 112
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ItemArea"]
 visible = false
@@ -54,5 +54,5 @@ unique_name_in_owner = true
 
 [node name="InvulTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 0.8
 one_shot = true

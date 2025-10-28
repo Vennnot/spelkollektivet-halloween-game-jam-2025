@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1qh8b25g7kaj"]
+
+[ext_resource type="Script" uid="uid://p31jsoyv4h7x" path="res://scenes/rooms/room.gd" id="1_jgwap"]
+[ext_resource type="Texture2D" uid="uid://bqcen2pc10v04" path="res://scenes/rooms/v_long_room/Hallway2.png" id="2_ol824"]
+[ext_resource type="PackedScene" uid="uid://davbt5dqhtrqf" path="res://scenes/rooms/door/door.tscn" id="3_11v80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0et"]
+size = Vector2(1865, 155.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8k6y"]
+size = Vector2(219, 871)
+
+[node name="NormalRoom" type="Node2D"]
+script = ExtResource("1_jgwap")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ol824")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="NorthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, -499)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NorthWall"]
+shape = SubResource("RectangleShape2D_ne0et")
+
+[node name="WestWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(122, -127)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WestWall"]
+position = Vector2(-414, 147)
+shape = SubResource("RectangleShape2D_s8k6y")
+
+[node name="EastWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(706, -159)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/EastWall"]
+position = Vector2(-414, 147)
+shape = SubResource("RectangleShape2D_s8k6y")
+
+[node name="SouthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 504)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SouthWall"]
+shape = SubResource("RectangleShape2D_ne0et")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="NorthDoor" parent="Doors" instance=ExtResource("3_11v80")]
+position = Vector2(0, -483)
+
+[node name="SouthDoor" parent="Doors" instance=ExtResource("3_11v80")]
+position = Vector2(-4, 485)
+rotation = 3.1415927
+
+[node name="CameraPos" type="Marker2D" parent="."]
+unique_name_in_owner = true

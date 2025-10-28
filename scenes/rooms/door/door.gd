@@ -31,8 +31,6 @@ func _on_area_entered(other_area:Area2D)->void:
 		connected_door.area_2d.monitoring = false
 		parent.global_position = connected_door.area_2d.global_position
 		Events.room_changed.emit(connected_door.get_parent().get_parent())
-		print(connected_door.get_parent().get_parent().camera_pos.global_position)
-		print(get_parent().get_parent().camera_pos.global_position)
 
 func _on_area_exited(other_area:Area2D)->void:
 	var parent := other_area.get_parent()

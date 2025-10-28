@@ -131,6 +131,9 @@ func _on_item_area_entered(other_area:Area2D)->void:
 		move_speed = slow_speed
 	elif parent is Spikes:
 		health_component.damage(1)
+	elif parent is Bullet:
+		health_component.damage(1)
+		parent.destroy()
 
 
 func _on_item_area_exited(other_area:Area2D)->void:
