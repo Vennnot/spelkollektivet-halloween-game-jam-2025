@@ -5,7 +5,7 @@ const PUDDLE = preload("uid://b8qvs03ix3tmq")
 var launched := true
 
 var player :Player
-var max_bounces := 3
+var max_bounces := 0
 var current_bounces := 0
 var nutella := false
 var pomegranate := false

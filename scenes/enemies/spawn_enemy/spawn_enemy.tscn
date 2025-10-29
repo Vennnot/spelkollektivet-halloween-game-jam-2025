@@ -1,10 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy4l1vdcborhi"]
+[gd_scene load_steps=15 format=3 uid="uid://dy4l1vdcborhi"]
 
 [ext_resource type="Script" uid="uid://b8o4y0ri5mtbg" path="res://scenes/enemies/spawn_enemy/spawn_enemy.gd" id="1_v8iq8"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_5s2lb"]
 [ext_resource type="Script" uid="uid://ceu11hdslmfvb" path="res://components/movement_component/distance_movement_component.gd" id="3_ba6ck"]
+[ext_resource type="Shader" uid="uid://dnt7haitfb7vo" path="res://resources/shaders/aura.gdshader" id="4_pf3qu"]
 [ext_resource type="Texture2D" uid="uid://b6au8ja3d5n74" path="res://scenes/enemies/spawn_enemy/Vase3.png" id="4_v8iq8"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_otthj"]
+
+[sub_resource type="Gradient" id="Gradient_ly251"]
+colors = PackedColorArray(0.7500901, 0.6168709, 0.9959566, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_10rxu"]
+gradient = SubResource("Gradient_ly251")
+
+[sub_resource type="Gradient" id="Gradient_546l1"]
+offsets = PackedFloat32Array(0, 0.90782124, 1)
+colors = PackedColorArray(0, 0, 0.23137255, 1, 0.099891745, 0.14519137, 0.78105396, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_60g1s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f4mfm"]
+noise = SubResource("FastNoiseLite_60g1s")
+color_ramp = SubResource("Gradient_546l1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6f82j"]
+shader = ExtResource("4_pf3qu")
+shader_parameter/scrollingTexture = SubResource("NoiseTexture2D_f4mfm")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.6000005035000004
+shader_parameter/textureStrength = 0.6000000285
+shader_parameter/maxLineWidth = 15.0000007125
+shader_parameter/minLineWidth = 1.0000000475
+shader_parameter/speed = 5.0000002375
+shader_parameter/blockSize = 25.0000011875
+shader_parameter/color = SubResource("GradientTexture1D_10rxu")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
 radius = 54.147945
@@ -36,7 +68,8 @@ unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
-scale = Vector2(0.4, 0.4)
+material = SubResource("ShaderMaterial_6f82j")
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_v8iq8")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

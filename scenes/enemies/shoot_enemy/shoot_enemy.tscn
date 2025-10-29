@@ -1,12 +1,44 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd1vjws6681ft"]
+[gd_scene load_steps=17 format=3 uid="uid://cd1vjws6681ft"]
 
 [ext_resource type="Script" uid="uid://ch30ll8l2bjat" path="res://scenes/enemies/shoot_enemy/shoot_enemy.gd" id="1_3n3bm"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_cn1vm"]
 [ext_resource type="Script" uid="uid://ceu11hdslmfvb" path="res://components/movement_component/distance_movement_component.gd" id="3_3n3bm"]
+[ext_resource type="Shader" uid="uid://dnt7haitfb7vo" path="res://resources/shaders/aura.gdshader" id="4_h7ds7"]
 [ext_resource type="Texture2D" uid="uid://jd51ukkilpdl" path="res://scenes/enemies/shoot_enemy/Vase2.png" id="4_snhuf"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_7aj1q"]
 [ext_resource type="PackedScene" uid="uid://bulah533v2ju7" path="res://scenes/shooter/shooter.tscn" id="6_snhuf"]
 [ext_resource type="PackedScene" uid="uid://bmh44nsqkfrxk" path="res://scenes/bullet/enemy_bullet/enemy_bullet.tscn" id="7_h7ds7"]
+
+[sub_resource type="Gradient" id="Gradient_bxtrj"]
+colors = PackedColorArray(0.7500901, 0.6168709, 0.9959566, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ryl4"]
+gradient = SubResource("Gradient_bxtrj")
+
+[sub_resource type="Gradient" id="Gradient_oovqk"]
+offsets = PackedFloat32Array(0, 0.90782124, 1)
+colors = PackedColorArray(0, 0, 0.23137255, 1, 0.099891745, 0.14519137, 0.78105396, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kgcva"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0vxfh"]
+noise = SubResource("FastNoiseLite_kgcva")
+color_ramp = SubResource("Gradient_oovqk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qeoyx"]
+shader = ExtResource("4_h7ds7")
+shader_parameter/scrollingTexture = SubResource("NoiseTexture2D_0vxfh")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.6000005035000004
+shader_parameter/textureStrength = 0.6000000285
+shader_parameter/maxLineWidth = 15.0000007125
+shader_parameter/minLineWidth = 1.0000000475
+shader_parameter/speed = 5.0000002375
+shader_parameter/blockSize = 25.0000011875
+shader_parameter/color = SubResource("GradientTexture1D_2ryl4")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
 radius = 42.047592
@@ -37,7 +69,8 @@ unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
-scale = Vector2(0.4, 0.4)
+material = SubResource("ShaderMaterial_qeoyx")
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_snhuf")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

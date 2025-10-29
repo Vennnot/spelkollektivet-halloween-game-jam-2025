@@ -26,6 +26,14 @@ func check_if_room_done():
 			if not c.health_component.health_depleted:
 				return
 	room_complete = true
+	var main :Main= get_tree().get_first_node_in_group("main")
+	var item_to_spawn :ItemResource= main.items_to_spawn.pop_front()
+	var item_scene :Item= load("uid://dekltjjwowiir").instantiate()
+	get_tree().get_first_node_in_group("entities").add_child(item_scene)
+	item_scene.resource = item_to_spawn
+	item_scene.update_visuals()
+	item_scene.global_position = camera_pos.global_position
+	
 	for d in $Doors.get_children():
 		if d is Door:
 			d.room_finished()

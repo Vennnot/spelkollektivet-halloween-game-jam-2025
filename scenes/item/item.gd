@@ -1,7 +1,10 @@
 class_name Item
 extends Node2D
 
+signal taken_away
+
 @onready var sprite: Sprite2D = %Sprite
+@onready var ghost: Sprite2D = %Ghost
 
 var resource : ItemResource :
 	set(value):
@@ -16,6 +19,14 @@ func _ready() -> void:
 
 func update_visuals():
 	sprite.texture = resource.sprite
+
+
+func take_away():
+	ghost.show()
+	var tween := create_tween()
+	tween.tween_property(self,"global_position",Vector2(global_position.x,-600),2)
+	await tween.finished
+	taken_away.emit()
 
 
 func despawn():

@@ -24,6 +24,8 @@ SceneChanger="*res://scenes/autoload/scene_changer.tscn"
 
 [debug]
 
+gdscript/warnings/unassigned_variable=0
+gdscript/warnings/unassigned_variable_op_assign=0
 gdscript/warnings/unused_variable=0
 gdscript/warnings/unused_local_constant=0
 gdscript/warnings/unused_private_class_variable=0
@@ -54,6 +56,7 @@ folder_colors={
 entities="enemies, projectiles, drops, etc"
 player=""
 enemies=""
+main=""
 
 [input]
 

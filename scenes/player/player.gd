@@ -12,7 +12,7 @@ const ITEM := preload("res://scenes/item/item.tscn")
 
 var last_direction := Vector2.RIGHT
 var on_item :Item= null
-var items : Array[ItemResource] = [null,null,null]
+var items : Array[ItemResource] = [null,null]
 
 var amount_per_shot := 1
 var time_between_shots := 0.05
@@ -54,14 +54,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shoot"):
 		shoot()
 		
-	if Input.is_action_pressed("item_1"):
+	if Input.is_action_just_pressed("item_1"):
 		swap_items(1)
 	
-	if Input.is_action_pressed("item_2"):
+	if Input.is_action_just_pressed("item_2"):
 		swap_items(2)
-	
-	if Input.is_action_pressed("item_3"):
-		swap_items(3)
 	
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	
@@ -89,8 +86,8 @@ func swap_items(slot:int)->void:
 	if not on_item:
 		return
 	
-	var previous_item := items[slot]
-	items[slot] = on_item.resource
+	var previous_item := items[slot-1]
+	items[slot-1] = on_item.resource
 	Events.item_changed.emit(slot,on_item.resource.sprite)
 	on_item.queue_free()
 	check_items()
