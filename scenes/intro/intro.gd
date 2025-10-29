@@ -1,5 +1,5 @@
 class_name Intro
-extends Control
+extends CanvasLayer
 
 @onready var intro: Label = %IntroLabel
 var transitioned := false

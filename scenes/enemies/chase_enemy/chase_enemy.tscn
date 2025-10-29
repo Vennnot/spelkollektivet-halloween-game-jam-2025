@@ -52,7 +52,7 @@ one_shot = true
 [node name="HitboxComponent" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 8
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("5_lu5c6")
 metadata/_custom_type_script = "uid://ce6uegni6rea1"
 

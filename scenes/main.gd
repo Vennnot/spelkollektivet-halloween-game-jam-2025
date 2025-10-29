@@ -6,16 +6,6 @@ var active_room : Node
 func _ready() -> void:
 	pass
 
-#region Run Manager
-
-func start_run():
-	print("Run started")
-
-
-func restart_run():
-	start_run()
-
-
-func end_run():
-	print("Run ended")
-#endregion
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("restart"):
+		SceneChanger.go_to_main()

@@ -1,13 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://icnhely25r5e"]
+[gd_scene load_steps=7 format=3 uid="uid://icnhely25r5e"]
 
+[ext_resource type="Script" uid="uid://bkj24q3k8qjhh" path="res://scenes/ui/main_ui.gd" id="1_46cp5"]
 [ext_resource type="PackedScene" uid="uid://da4sjey0vcqve" path="res://scenes/ui/player_health_bar.tscn" id="1_l8t6x"]
 [ext_resource type="PackedScene" uid="uid://bjwmad464nsia" path="res://scenes/ui/player_objects.tscn" id="2_travt"]
 [ext_resource type="PackedScene" uid="uid://b3ea52vx18l3d" path="res://scenes/ui/boss_objects.tscn" id="3_46cp5"]
+[ext_resource type="Texture2D" uid="uid://bkagyr1ew5rbo" path="res://scenes/intro/Screenshot from 2025-10-29 10-37-44.png" id="4_travt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_46cp5"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [node name="MainUI" type="CanvasLayer"]
+script = ExtResource("1_46cp5")
 
 [node name="PlayerHealthBar" parent="." instance=ExtResource("1_l8t6x")]
 
 [node name="PlayerObjects" parent="." instance=ExtResource("2_travt")]
 
 [node name="BossObjects" parent="." instance=ExtResource("3_46cp5")]
+
+[node name="GameOver" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9882353, 0.9607843, 0.9529412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="GameOver"]
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 181.0
+offset_right = 1768.0
+offset_bottom = 840.0
+texture = ExtResource("4_travt")
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 275.0
+offset_right = 956.0
+offset_bottom = 342.0
+text = "Junior... why are you such a scrub..."
+label_settings = SubResource("LabelSettings_46cp5")
+
+[node name="Label2" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 655.0
+offset_right = 713.0
+offset_bottom = 722.0
+text = "Press R to restart"
+label_settings = SubResource("LabelSettings_46cp5")

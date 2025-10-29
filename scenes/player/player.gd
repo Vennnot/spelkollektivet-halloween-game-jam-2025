@@ -117,7 +117,8 @@ func check_items():
 
 
 func _on_death():
-	pass
+	Events.game_over.emit()
+	queue_free()
 
 
 func _on_item_area_entered(other_area:Area2D)->void:
@@ -134,6 +135,8 @@ func _on_item_area_entered(other_area:Area2D)->void:
 	elif parent is Bullet:
 		health_component.damage(1)
 		parent.destroy()
+	elif parent is Enemy:
+		health_component.damage(1)
 
 
 func _on_item_area_exited(other_area:Area2D)->void:

@@ -12,6 +12,9 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 52.153618
 
+[sub_resource type="Animation" id="Animation_qek5x"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_0owmy"]
 resource_name = "idle"
 length = 1.5
@@ -28,9 +31,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("5_75vfm"), ExtResource("2_p47bc")]
 }
-
-[sub_resource type="Animation" id="Animation_qek5x"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5gtgg"]
 _data = {
@@ -69,10 +69,9 @@ one_shot = true
 [node name="ItemArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
-collision_mask = 112
+collision_mask = 120
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ItemArea"]
-visible = false
 shape = SubResource("CircleShape2D_gmlin")
 
 [node name="Shooter" parent="." instance=ExtResource("4_lvxji")]
