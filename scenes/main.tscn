@@ -53,7 +53,7 @@ text = "MOVE: W,A,S,D
 
 SHOOT: SPACEBAR
 
-PICK UP ITEMS: Z, X"
+PICK UP ITEMS: Z"
 label_settings = SubResource("LabelSettings_tefeu")
 horizontal_alignment = 1
 

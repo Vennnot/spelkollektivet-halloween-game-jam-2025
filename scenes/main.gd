@@ -32,12 +32,12 @@ func _ready() -> void:
 	_1.update_visuals()
 	_1.global_position = Vector2(430,-130)
 	
-	item_to_spawn= items_to_spawn.pop_front()
-	var _2 :Item= load("uid://dekltjjwowiir").instantiate()
-	get_tree().get_first_node_in_group("entities").add_child(_2)
-	_2.resource = item_to_spawn
-	_2.update_visuals()
-	_2.global_position = Vector2(0,240)
+	#item_to_spawn= items_to_spawn.pop_front()
+	#var _2 :Item= load("uid://dekltjjwowiir").instantiate()
+	#get_tree().get_first_node_in_group("entities").add_child(_2)
+	#_2.resource = item_to_spawn
+	#_2.update_visuals()
+	#_2.global_position = Vector2(0,240)
 	
 
 func _process(delta: float) -> void:

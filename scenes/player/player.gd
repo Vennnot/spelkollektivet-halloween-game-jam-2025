@@ -57,8 +57,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("item_1"):
 		swap_items(1)
 	
-	if Input.is_action_just_pressed("item_2"):
-		swap_items(2)
+	#if Input.is_action_just_pressed("item_2"):
+		#swap_items(2)
 	
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	
