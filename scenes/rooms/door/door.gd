@@ -30,7 +30,10 @@ func _on_area_entered(other_area:Area2D)->void:
 	if parent is Player and unlocked:
 		connected_door.area_2d.monitoring = false
 		parent.global_position = connected_door.area_2d.global_position
-		Events.room_changed.emit(connected_door.get_parent().get_parent())
+		var other_room:Room =connected_door.get_parent().get_parent()
+		Events.room_changed.emit(other_room)
+		await get_tree().create_timer(0.5).timeout
+		other_room.call_deferred("start")
 
 func _on_area_exited(other_area:Area2D)->void:
 	var parent := other_area.get_parent()

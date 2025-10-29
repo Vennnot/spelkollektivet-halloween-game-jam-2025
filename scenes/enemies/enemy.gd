@@ -19,7 +19,6 @@ var bullet_sprite : Sprite2D
 func _ready() -> void:
 	health_component.died.connect(_on_death)
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
-
 	
 	kitsugiri_shader = KITSUGIRI.duplicate()
 	
