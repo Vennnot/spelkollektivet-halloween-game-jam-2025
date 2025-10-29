@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5slwt0nktg1i"]
+
+[ext_resource type="Script" uid="uid://r1pwsbyf4ccp" path="res://scenes/autoload/scene_changer.gd" id="1_h4ram"]
+[ext_resource type="Shader" uid="uid://b0x2yu06skcmx" path="res://scenes/autoload/scene_changer.gdshader" id="2_yunmm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b84w0"]
+shader = ExtResource("2_yunmm")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 20.0
+
+[node name="SceneChanger" type="CanvasLayer"]
+script = ExtResource("1_h4ram")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b84w0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5729883, 0.5729883, 0.5729883, 1)

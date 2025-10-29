@@ -16,8 +16,9 @@ motion_mode = 1
 script = ExtResource("1_7awvf")
 
 [node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7awvf")
 

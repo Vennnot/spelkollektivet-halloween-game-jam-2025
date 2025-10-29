@@ -11,7 +11,7 @@ var resource : ItemResource :
 		update_visuals()
 
 func _ready() -> void:
-	resource = load("res://resources/items/item_watermelon.tres")
+	resource = load("res://resources/items/item_bubblegum.tres")
 
 
 func update_visuals():

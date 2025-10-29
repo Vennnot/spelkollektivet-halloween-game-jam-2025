@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxhva57j2pgca"]
+
+[ext_resource type="Texture2D" uid="uid://bkagyr1ew5rbo" path="res://scenes/intro/Screenshot from 2025-10-29 10-37-44.png" id="1_iatiw"]
+[ext_resource type="Script" uid="uid://c6e3rjk64nrhw" path="res://scenes/intro/intro.gd" id="1_qeukb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_teox7"]
+font_size = 32
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qeukb")
+
+[node name="IntroLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 107.0
+offset_top = 170.0
+offset_right = 911.0
+offset_bottom = 887.0
+grow_vertical = 2
+text = "Dearest Junior...
+
+As part of my last wish 
+I left you my pottery collection. 
+
+My lack of care led to ghosts haunting these pieces.
+
+Banish the ghosts and use the art of Kitsugiri;
+repairing pieces making them impervious to haunts;
+
+with love,
+
+Uncle Trunk"
+label_settings = SubResource("LabelSettings_teox7")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 963.0
+offset_top = 169.0
+offset_right = 1716.0
+offset_bottom = 828.0
+texture = ExtResource("1_iatiw")

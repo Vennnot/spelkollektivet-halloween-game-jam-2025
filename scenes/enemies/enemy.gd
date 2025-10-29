@@ -14,11 +14,12 @@ const KITSUGIRI := preload("uid://brou6b3nhxkx8")
 var defeated := false
 var kitsugiri_shader : Shader
 var player : Player
+var bullet_sprite : Sprite2D
 
 func _ready() -> void:
-	hitbox.hitted.connect(_on_hit)
 	health_component.died.connect(_on_death)
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
+
 	
 	kitsugiri_shader = KITSUGIRI.duplicate()
 	
@@ -40,10 +41,16 @@ func _physics_process(delta: float) -> void:
 	velocity = movement_component.calculate_velocity(player.global_position, delta, distance, velocity)
 	move_and_slide()
 
-func _on_hit(hurtbox: HurtboxComponent)->void:
-	health_component.damage(hurtbox.damage)
-	hurtbox.queue_free()
 
+func bullet_explosion():
+	var pomegranate_timer := get_tree().create_timer(3)
+	pomegranate_timer.timeout.connect(_on_pomegranate_timer_timeout)
+	var tween := create_tween()
+	tween.tween_property(bullet_sprite, "scale",Vector2(1.5,1.5),3)
+
+func _on_pomegranate_timer_timeout():
+	health_component.damage(5)
+	bullet_sprite.queue_free()
 
 func _on_death()->void:
 	visuals.modulate = Color.WHITE
