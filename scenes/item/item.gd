@@ -23,8 +23,9 @@ func update_visuals():
 
 func take_away():
 	ghost.show()
+	EnemySpawner.update_variables(resource)
 	var tween := create_tween()
-	tween.tween_property(self,"global_position",Vector2(global_position.x,-600),2)
+	tween.tween_property(self,"global_position",Vector2(global_position.x,-600),1)
 	await tween.finished
 	taken_away.emit()
 

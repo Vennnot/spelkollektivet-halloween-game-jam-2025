@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxc2ke4hpngc2"]
+[gd_scene load_steps=8 format=3 uid="uid://dxc2ke4hpngc2"]
 
 [ext_resource type="Script" uid="uid://c7netl5wnnchy" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://beqnfnjxu5dhb" path="res://scenes/enemies/boss_enemy/boss_enemy.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://icnhely25r5e" path="res://scenes/ui/main_ui.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cvy8uqjpawxjw" path="res://scenes/rooms/normal_room/normal_room.tscn" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://dyjp1p2chb4uv" path="res://scenes/camera.gd" id="8_tipki"]
@@ -36,6 +37,9 @@ enemy_spawn_pos = [NodePath("Marker2D")]
 connected_door = NodePath("../../../NormalRoom1/Doors/EastDoor")
 
 [node name="Marker2D" type="Marker2D" parent="Map/NormalRoom2"]
+
+[node name="BossEnemy" parent="Map/NormalRoom2" instance=ExtResource("4_tefeu")]
+position = Vector2(71, -36)
 
 [node name="MainUI" parent="." instance=ExtResource("5_tbgi4")]
 unique_name_in_owner = true

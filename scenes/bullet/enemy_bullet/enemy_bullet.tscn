@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmh44nsqkfrxk"]
 
-[ext_resource type="Script" uid="uid://bwpaag2dobema" path="res://scenes/bullet/bullet.gd" id="1_ix2yb"]
+[ext_resource type="Script" uid="uid://s3b1yoxprwyu" path="res://scenes/bullet/enemy_bullet/enemy_bullet.gd" id="1_80aox"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_kxe2m"]
 [ext_resource type="Script" uid="uid://d1jfqtp4jtm3f" path="res://components/boxes/hurtbox_component.gd" id="3_pg7lt"]
 
@@ -13,7 +13,7 @@ radius = 11.0
 [node name="EnemyBullet" type="CharacterBody2D"]
 collision_layer = 64
 motion_mode = 1
-script = ExtResource("1_ix2yb")
+script = ExtResource("1_80aox")
 
 [node name="Visuals" type="Node2D" parent="."]
 

@@ -12,6 +12,7 @@ script = ExtResource("1_87h6y")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
 texture = ExtResource("1_wsr4p")
 
 [node name="Area2D" type="Area2D" parent="."]

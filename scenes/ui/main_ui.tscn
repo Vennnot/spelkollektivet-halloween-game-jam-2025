@@ -46,7 +46,9 @@ offset_left = 142.0
 offset_top = 275.0
 offset_right = 956.0
 offset_bottom = 342.0
-text = "Junior... why are you such a scrub..."
+text = "Junior...you have failed. I thankfully also
+sent a letter to your sister, juniora,
+she'll be able to fix this."
 label_settings = SubResource("LabelSettings_46cp5")
 
 [node name="Label2" type="Label" parent="GameOver"]

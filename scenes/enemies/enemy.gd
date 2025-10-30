@@ -15,6 +15,7 @@ var defeated := false
 var kitsugiri_shader : Shader
 var player : Player
 var bullet_sprite : Sprite2D
+@export var item_texture : Texture2D
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)

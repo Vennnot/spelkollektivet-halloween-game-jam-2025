@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://mc8mdkqh4206"
-path="res://.godot/imported/enemy explosion.wav-c03a314f47f931719cefcb64f0f16354.sample"
+path="res://.godot/imported/enemy explosion.wav-3748724b245f3863e43535985b92e2e0.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/enemy explosion.wav"
-dest_files=["res://.godot/imported/enemy explosion.wav-c03a314f47f931719cefcb64f0f16354.sample"]
+source_file="res://assets/audio/sfx/first_batch/enemy explosion.wav"
+dest_files=["res://.godot/imported/enemy explosion.wav-3748724b245f3863e43535985b92e2e0.sample"]
 
 [params]
 

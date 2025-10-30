@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b41mjqbto3rvw"]
+
+[ext_resource type="Script" uid="uid://dm6tbwhhutdvu" path="res://scenes/intro/end.gd" id="1_ddifq"]
+[ext_resource type="Texture2D" uid="uid://bkagyr1ew5rbo" path="res://scenes/intro/Screenshot from 2025-10-29 10-37-44.png" id="2_hxb3f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_teox7"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="End" type="CanvasLayer"]
+script = ExtResource("1_ddifq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9882353, 0.9607843, 0.9529412, 1)
+
+[node name="IntroLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 116.0
+offset_top = -342.0
+offset_right = 920.0
+offset_bottom = 375.0
+grow_vertical = 2
+text = "Well done Junior. I am proud of you.
+
+I knew I could count on you. Now I
+can sell this home at a profit.
+
+For your reward, I sent you some bubble gum.
+
+Best,
+
+Uncle Trunk"
+label_settings = SubResource("LabelSettings_teox7")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 963.0
+offset_top = 169.0
+offset_right = 1716.0
+offset_bottom = 828.0
+texture = ExtResource("2_hxb3f")

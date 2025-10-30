@@ -22,6 +22,7 @@ Events="*res://scenes/autoload/events.gd"
 Enums="*res://scenes/autoload/enums.gd"
 SceneChanger="*res://scenes/autoload/scene_changer.tscn"
 AudioManager="*res://scenes/autoload/audio_manager.tscn"
+EnemySpawner="*res://scenes/autoload/enemy_spawner.tscn"
 
 [debug]
 

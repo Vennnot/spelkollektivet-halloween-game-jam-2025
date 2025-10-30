@@ -1,20 +1,4 @@
-class_name Bullet extends CharacterBody2D
-
-const PUDDLE = preload("uid://b8qvs03ix3tmq")
-
-var launched := true
-
-var player :Player
-var max_bounces := 0
-var current_bounces := 0
-var nutella := false
-var pomegranate := false
-var boomerang_acceleration :float= 0
-var initial_speed : float
-
-@onready var sprite: Sprite2D = %Sprite
-
-@onready var hurtbox: HurtboxComponent = %HurtboxComponent
+class_name EnemyBullet extends Bullet
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -24,18 +8,14 @@ func _ready() -> void:
 	check_items()
 
 func check_items():
-	for item in player.items:
-		if not item:
-			continue
-		elif item.id == "bubblegum":
-			max_bounces = 5
-		elif item.id == "nutella":
-			nutella = true
-		elif item.id == "pomegranate":
-			pomegranate = true
-		elif item.id == "croissant":
-			boomerang_acceleration = 0.8
-		
+	if EnemySpawner.bubblegum:
+		max_bounces = 5
+	if EnemySpawner.nutella:
+		nutella = true
+	if EnemySpawner.pomegranate:
+		pomegranate = true
+	if EnemySpawner.croissant:
+		boomerang_acceleration = 0.8
 
 
 func throw(direction: Vector2, move_speed: float, damage: int):

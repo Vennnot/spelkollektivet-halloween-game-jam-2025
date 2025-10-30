@@ -8,13 +8,15 @@ const CHASE_ENEMY = preload("uid://d0hl3bf6323tt")
 @export var room_complete := false
 
 func start():
+	await get_tree().create_timer(1.5).timeout
 	if room_complete:
 		for d in $Doors.get_children():
 			if d is Door:
 				d.room_finished()
 		return
 	for pos in enemy_spawn_pos:
-		var enemy:Enemy= CHASE_ENEMY.instantiate()
+		var enemy_scene :PackedScene= EnemySpawner.fetch_random_enemy()
+		var enemy:Enemy= enemy_scene.instantiate()
 		add_child(enemy)
 		enemy.global_position = pos.global_position
 		enemy.health_component.died.connect(check_if_room_done)

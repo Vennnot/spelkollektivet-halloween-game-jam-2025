@@ -3,10 +3,13 @@ extends Node
 @export_category("Audio Files")
 @export var audio_library: Dictionary = {
 	# SFX - Single files
+	"player_shoot":[preload("uid://cyk2cxbhsdq83"),preload("uid://naa3jurmk4dt"), preload("uid://bauypbnn27pfb")],
+	"player_walk":[preload("uid://jdod6qk2txbp"), preload("uid://cfn2khpf20cj6"), preload("uid://bj286fq45ptc1"), preload("uid://c0mcj4qx0trch")],
 	"enemy_explosion": preload("uid://mc8mdkqh4206"),
-	
+	"enemy_death": preload("uid://dag633uflhmup"),
 	# SFX - Arrays (multiple variations)
-	"enemy_damaged": [preload("uid://d4yrul84r8n1"), preload("uid://d3etk8hgpmymf"), preload("uid://dj2wbiixtkxsf")]
+	"enemy_damaged": [preload("uid://d4yrul84r8n1"), preload("uid://d3etk8hgpmymf"), preload("uid://dj2wbiixtkxsf")],
+	"enemy_shooting":[preload("uid://cua4p6622lg3v"), preload("uid://bjhu1ot5ogebh"), preload("uid://bxre80r2yg5s")],
 }
 
 @export_category("Music")

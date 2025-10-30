@@ -8,6 +8,7 @@ var active_room : Node
 var items : Array[ItemResource]
 var items_to_spawn : Array[ItemResource]
 
+
 func _ready() -> void:
 	Events.room_changed.connect(_on_room_changed)
 	items_to_spawn.append(load("uid://c83c7e3skiqsf"))
@@ -42,6 +43,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("restart"):
+		EnemySpawner.reset_variables()
 		SceneChanger.go_to_main()
 
 
@@ -53,5 +55,6 @@ func _on_room_changed(room:Room):
 			i.take_away()
 			await i.taken_away
 			main_ui.boss_objects.fill_next_item_slot(i.resource.sprite)
-			i.queue_free()
+			i.despawn()
 	get_tree().paused = false
+	room.call_deferred("start")
