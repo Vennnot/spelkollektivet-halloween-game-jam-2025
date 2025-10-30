@@ -16,7 +16,6 @@ var resource : ItemResource :
 func _ready() -> void:
 	resource = load("res://resources/items/item_bubblegum.tres")
 
-
 func update_visuals():
 	sprite.texture = resource.sprite
 

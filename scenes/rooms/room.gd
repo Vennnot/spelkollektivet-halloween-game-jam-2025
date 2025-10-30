@@ -6,6 +6,7 @@ const CHASE_ENEMY = preload("uid://d0hl3bf6323tt")
 @onready var camera_pos: Marker2D = %CameraPos
 @export var enemy_spawn_pos : Array[Marker2D]
 @export var room_complete := false
+@export var drops_item := true
 
 func start():
 	await get_tree().create_timer(1.5).timeout
@@ -28,6 +29,8 @@ func check_if_room_done():
 			if not c.health_component.health_depleted:
 				return
 	room_complete = true
+	if not drops_item:
+		return
 	var main :Main= get_tree().get_first_node_in_group("main")
 	var item_to_spawn :ItemResource= main.items_to_spawn.pop_front()
 	var item_scene :Item= load("uid://dekltjjwowiir").instantiate()
