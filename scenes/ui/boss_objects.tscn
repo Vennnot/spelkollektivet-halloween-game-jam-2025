@@ -23,7 +23,7 @@ shader_parameter/textureStrength = 0.5
 shader_parameter/maxLineWidth = 3.762000178695
 shader_parameter/minLineWidth = 4.1200001957
 shader_parameter/speed = 6.4110003045225
-shader_parameter/blockSize = 11.304000536939999
+shader_parameter/blockSize = 11.30400053694
 shader_parameter/gradientResolution = 10
 shader_parameter/tolerance = 0.7630000362425
 
@@ -48,47 +48,59 @@ grow_vertical = 0
 [node name="Item1" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_a2x8y")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_u4vdn")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Item2" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_a2x8y")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_u4vdn")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Item3" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_a2x8y")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_u4vdn")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Item4" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_a2x8y")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_u4vdn")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Item5" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_a2x8y")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_u4vdn")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Item6" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_a2x8y")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_u4vdn")
+expand_mode = 1
 stretch_mode = 5

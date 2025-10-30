@@ -49,6 +49,7 @@ script = ExtResource("1_ihere")
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
+self_modulate = Color(0.18610474, 0.085938595, 0, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ihere")
 

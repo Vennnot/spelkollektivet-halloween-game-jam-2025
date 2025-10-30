@@ -83,8 +83,9 @@ size_flags_horizontal = 3
 [node name="BossObjects" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_46cp5")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
+layout_direction = 3
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="PlayerHealthBar" parent="MarginContainer" instance=ExtResource("1_l8t6x")]
 layout_mode = 2

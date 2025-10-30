@@ -23,12 +23,18 @@ grow_vertical = 0
 
 [node name="Item1" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+expand_mode = 1
 
 [node name="Item2" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+expand_mode = 1
 
 [node name="Item3" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+expand_mode = 1

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://c83c7e3skiqsf"]
 
 [ext_resource type="Script" uid="uid://tw5ekslcqelu" path="res://resources/items/item_resource.gd" id="1_riysq"]
-[ext_resource type="Texture2D" uid="uid://bmw3hku8ekidj" path="res://resources/items/mushroom_brown.svg" id="2_gsp4a"]
+[ext_resource type="Texture2D" uid="uid://bdtbcikw3spc5" path="res://resources/items/Watermelon_.png" id="2_riysq"]
 
 [resource]
 script = ExtResource("1_riysq")
 id = "watermelon"
-sprite = ExtResource("2_gsp4a")
+sprite = ExtResource("2_riysq")
 metadata/_custom_type_script = "uid://tw5ekslcqelu"
