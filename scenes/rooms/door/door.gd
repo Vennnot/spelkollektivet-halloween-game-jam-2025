@@ -4,7 +4,7 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 
 @export var connected_door:Door
-var unlocked : bool = true :
+var unlocked : bool = false :
 	set(value):
 		unlocked = value
 
@@ -20,10 +20,6 @@ func room_finished():
 	area_2d.monitoring = true
 
 
-func room_started():
-	unlocked = false
-	area_2d.monitoring = false
-
 
 func _on_area_entered(other_area:Area2D)->void:
 	var parent := other_area.get_parent()
@@ -32,6 +28,7 @@ func _on_area_entered(other_area:Area2D)->void:
 		parent.global_position = connected_door.area_2d.global_position
 		var other_room:Room =connected_door.get_parent().get_parent()
 		Events.room_changed.emit(other_room)
+
 
 func _on_area_exited(other_area:Area2D)->void:
 	var parent := other_area.get_parent()

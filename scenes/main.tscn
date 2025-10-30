@@ -44,7 +44,7 @@ drops_item = false
 connected_door = NodePath("../../../NormalRoom2/Doors/WestDoor")
 
 [node name="WestDoor" parent="Map/HRoom1/Doors" index="1" node_paths=PackedStringArray("connected_door")]
-connected_door = NodePath("../../../NormalRoom1/Doors/WestDoor")
+connected_door = NodePath("../../../NormalRoom1/Doors/EastDoor")
 
 [node name="Rock" parent="Map/HRoom1" instance=ExtResource("5_ya4ey")]
 position = Vector2(-592, -45)

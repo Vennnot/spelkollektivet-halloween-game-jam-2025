@@ -18,7 +18,8 @@ script = ExtResource("1_80aox")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_kxe2m")
 

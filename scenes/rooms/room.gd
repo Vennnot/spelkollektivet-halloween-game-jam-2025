@@ -8,6 +8,13 @@ const CHASE_ENEMY = preload("uid://d0hl3bf6323tt")
 @export var room_complete := false
 @export var drops_item := true
 
+func _ready() -> void:
+	if room_complete:
+		for d in $Doors.get_children():
+			if d is Door:
+				d.room_finished()
+
+
 func start():
 	await get_tree().create_timer(1.5).timeout
 	if room_complete:
@@ -20,7 +27,9 @@ func start():
 		var enemy:Enemy= enemy_scene.instantiate()
 		add_child(enemy)
 		enemy.global_position = pos.global_position
-		enemy.health_component.died.connect(check_if_room_done)
+		enemy.health_component.died.connect(
+	func(): call_deferred("check_if_room_done")
+)
 
 
 func check_if_room_done():
@@ -31,6 +40,7 @@ func check_if_room_done():
 	room_complete = true
 	if not drops_item:
 		return
+	drops_item = false
 	var main :Main= get_tree().get_first_node_in_group("main")
 	var item_to_spawn :ItemResource= main.items_to_spawn.pop_front()
 	var item_scene :Item= load("uid://dekltjjwowiir").instantiate()
