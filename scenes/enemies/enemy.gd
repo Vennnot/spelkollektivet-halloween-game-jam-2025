@@ -2,6 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 const KITSUGIRI := preload("uid://brou6b3nhxkx8")
+const PICKUP_HEALTH = preload("uid://c7w0femtixw5y")
 
 @export var health_component: HealthComponent
 @export var movement_component: MovementComponent
@@ -63,15 +64,25 @@ func _on_death()->void:
 	shader.set_shader_parameter("shine_size",10)
 	shader.set_shader_parameter("shine_intensity",1)
 	defeated = true
+	spawn_health()
 	AudioManager.play("enemy_death")
 	kitsugiri_timer.start()
+
+
+func spawn_health():
+	if randf_range(0,1)>0.5:
+		return
+	
+	var pickup := PICKUP_HEALTH.instantiate()
+	var entities_node = get_tree().get_first_node_in_group("entities")
+	entities_node.call_deferred("add_child", pickup)
+	pickup.global_position = global_position
 
 
 func _on_kitsugiri_timer_timeout()->void:
 	var shader := sprite.material as ShaderMaterial
 	var intensity_value : float= shader.get_shader_parameter("shine_intensity")
 	
-	#TODO vary size?
 	var tween :=create_tween()
 	tween.tween_property(sprite,"material:shader_parameter/shine_intensity",clamp(intensity_value+randf_range(-0.5,0.5),2,3.5),0.6)
 	kitsugiri_timer.start()

@@ -44,6 +44,10 @@ func throw(direction: Vector2, move_speed: float, damage: int):
 	hurtbox.damage = damage
 	launched = true 
 
+func _process(delta: float) -> void:
+	sprite.rotate(5*delta)
+
+
 
 func _physics_process(delta: float) -> void:
 	if not launched:

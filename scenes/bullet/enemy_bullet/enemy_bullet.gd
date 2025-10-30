@@ -18,6 +18,9 @@ func check_items():
 		boomerang_acceleration = 0.8
 
 
+func _process(delta: float) -> void:
+	sprite.rotate(5*delta)
+
 func throw(direction: Vector2, move_speed: float, damage: int):
 	initial_speed = move_speed
 	velocity = direction * move_speed

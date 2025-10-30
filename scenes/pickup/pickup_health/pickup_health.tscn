@@ -1,19 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7w0femtixw5y"]
+[gd_scene load_steps=9 format=3 uid="uid://c7w0femtixw5y"]
 
 [ext_resource type="Script" uid="uid://d3swkkvtoosis" path="res://scenes/pickup/pickup_health/pickup_health.gd" id="1_fpaht"]
-[ext_resource type="Texture2D" uid="uid://ckbr04iktbeac" path="res://scenes/pickup/pickup_health/star.svg" id="2_fpaht"]
+[ext_resource type="Texture2D" uid="uid://djm8ije4wexmw" path="res://scenes/pickup/pickup_health/sandwich.png" id="2_fpaht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_337jl"]
+atlas = ExtResource("2_fpaht")
+region = Rect2(0, 0, 170, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcfu1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_337jl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khftb"]
-radius = 92.574295
+radius = 47.801674
+
+[sub_resource type="Animation" id="Animation_fpaht"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30197504, 0.68935716, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647]
+}
+
+[sub_resource type="Animation" id="Animation_wvdid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_337jl"]
+_data = {
+&"RESET": SubResource("Animation_wvdid"),
+&"idle": SubResource("Animation_fpaht")
+}
 
 [node name="PickupHealth" type="Node2D"]
 script = ExtResource("1_fpaht")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite2D" parent="Visuals"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Visuals"]
 unique_name_in_owner = true
-texture = ExtResource("2_fpaht")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qcfu1")
+frame_progress = 0.1752181
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 16
@@ -21,3 +75,9 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_khftb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_337jl")
+}
+autoplay = "idle"
