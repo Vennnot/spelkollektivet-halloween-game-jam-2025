@@ -1,13 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxrh2pgc7st6x"]
+[gd_scene load_steps=8 format=3 uid="uid://cxrh2pgc7st6x"]
 
 [ext_resource type="Script" uid="uid://dm5l00dbbptt2" path="res://scenes/obstacles/web/web.gd" id="1_sixpy"]
-[ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_xbxsd"]
+[ext_resource type="Texture2D" uid="uid://rvx4vhypmudu" path="res://scenes/obstacles/web/Cobweb-Sheet.png" id="2_sixpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk4b6"]
+atlas = ExtResource("2_sixpy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c41cx"]
+atlas = ExtResource("2_sixpy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucnyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk4b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c41cx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6l74"]
 size = Vector2(122, 122)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sixpy"]
-size = Vector2(124, 124)
+[sub_resource type="CircleShape2D" id="CircleShape2D_sixpy"]
+radius = 46.50269
 
 [node name="Web" type="StaticBody2D"]
 collision_layer = 0
@@ -16,9 +38,10 @@ script = ExtResource("1_sixpy")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite2D" parent="Visuals"]
-self_modulate = Color(0.13612702, 0, 0.9670587, 1)
-texture = ExtResource("2_xbxsd")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+sprite_frames = SubResource("SpriteFrames_ucnyu")
+autoplay = "default"
+frame_progress = 0.53674406
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 visible = false
@@ -30,4 +53,5 @@ collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlowArea"]
-shape = SubResource("RectangleShape2D_sixpy")
+position = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_sixpy")
