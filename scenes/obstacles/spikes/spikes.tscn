@@ -269,7 +269,7 @@ animations = [{
 size = Vector2(122, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sixpy"]
-size = Vector2(29, 89)
+size = Vector2(29, 58)
 
 [node name="Spikes" type="StaticBody2D"]
 collision_layer = 0
@@ -294,5 +294,5 @@ collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(0.5, 0.5)
+position = Vector2(0.5, 7)
 shape = SubResource("RectangleShape2D_sixpy")

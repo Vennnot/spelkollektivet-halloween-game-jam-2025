@@ -63,6 +63,7 @@ func _on_death()->void:
 	shader.set_shader_parameter("shine_size",10)
 	shader.set_shader_parameter("shine_intensity",1)
 	defeated = true
+	AudioManager.play("enemy_death")
 	kitsugiri_timer.start()
 
 

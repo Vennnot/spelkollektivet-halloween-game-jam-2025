@@ -8,6 +8,8 @@ func _ready() -> void:
 
 
 func shoot(direction:Vector2, amount_per_shot:int, time_between_shots:float, number_of_shots:int, items:Array[ItemResource]):
+	if get_parent() is Enemy:
+		AudioManager.play("enemy_shooting")
 	var total_spread := (amount_per_shot - 1) * 10.0
 	var start_angle := -total_spread / 2.0
 	for j in number_of_shots:

@@ -77,6 +77,7 @@ func shoot():
 	if not attack_timer.is_stopped():
 		return
 	
+	AudioManager.play("player_shoot")
 	attack_timer.start()
 	shooter.shoot(last_direction, amount_per_shot, time_between_shots,number_of_shots,items)
 

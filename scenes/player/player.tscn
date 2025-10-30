@@ -1,10 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxxosyemopp30"]
+[gd_scene load_steps=13 format=3 uid="uid://dxxosyemopp30"]
 
 [ext_resource type="Script" uid="uid://2vfvg6d1otcy" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bmomgqrrwcagt" path="res://scenes/player/Player_anim_idle2.PNG" id="2_p47bc"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://bulah533v2ju7" path="res://scenes/shooter/shooter.tscn" id="4_lvxji"]
 [ext_resource type="Texture2D" uid="uid://d3f2i3j84iyve" path="res://scenes/player/Player_anim_idle1.PNG" id="5_75vfm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75vfm"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_updown",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvxji"]
 radius = 8.0
@@ -41,6 +72,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_layer = 2
+collision_mask = 257
 script = ExtResource("1_dovo2")
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -48,6 +80,16 @@ script = ExtResource("1_dovo2")
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_p47bc")
+
+[node name="Head" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_p47bc")
+animation = &"shoot"
+
+[node name="Body" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_75vfm")
+animation = &"walk_updown"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 21)

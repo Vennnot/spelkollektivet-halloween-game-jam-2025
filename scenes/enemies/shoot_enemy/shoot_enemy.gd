@@ -21,5 +21,7 @@ func _on_shoot_timer_timeout()->void:
 
 
 func shoot():
+	if not player:
+		return
 	var direction := global_position.direction_to(player.global_position)
 	shooter.shoot(direction,1,1,1,[])

@@ -122,6 +122,7 @@ restart={
 2d_physics/layer_6="obstacles"
 2d_physics/layer_7="enemy_projectiles"
 2d_physics/layer_8="hurtbox"
+2d_physics/layer_9="other_environ"
 
 [physics]
 

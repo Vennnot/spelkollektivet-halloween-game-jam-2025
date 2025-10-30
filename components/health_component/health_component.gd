@@ -36,6 +36,8 @@ func damage(value:int):
 	
 	self.health -= value
 	damaged.emit()
+	if get_parent().get_parent() is Enemy:
+		AudioManager.play("enemy_damaged")
 
 
 func kill():
