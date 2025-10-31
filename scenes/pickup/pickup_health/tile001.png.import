@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr0ib3aeoyhrd"
-path="res://.godot/imported/hud_key_green.svg-df68ac44ab9767ec8d425e105fed0437.ctex"
+uid="uid://cwo3cwinhk03"
+path="res://.godot/imported/tile001.png-95a67ef73d386b14247006893aac1857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/pickup/pickup_health/hud_key_green.svg"
-dest_files=["res://.godot/imported/hud_key_green.svg-df68ac44ab9767ec8d425e105fed0437.ctex"]
+source_file="res://scenes/pickup/pickup_health/tile001.png"
+dest_files=["res://.godot/imported/tile001.png-95a67ef73d386b14247006893aac1857.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

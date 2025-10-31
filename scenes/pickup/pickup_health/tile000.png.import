@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpv3hmigfp77f"
-path="res://.godot/imported/heart.svg-389b06f81fd626004cbab94c94d76071.ctex"
+uid="uid://b1tprn422ubsc"
+path="res://.godot/imported/tile000.png-d3730f6ba076c221bd356d9542e19869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/pickup/pickup_health/heart.svg"
-dest_files=["res://.godot/imported/heart.svg-389b06f81fd626004cbab94c94d76071.ctex"]
+source_file="res://scenes/pickup/pickup_health/tile000.png"
+dest_files=["res://.godot/imported/tile000.png-d3730f6ba076c221bd356d9542e19869.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
