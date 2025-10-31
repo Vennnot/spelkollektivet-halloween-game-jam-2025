@@ -24,6 +24,8 @@ var number_of_shots := 1
 @onready var item_area: Area2D = %ItemArea
 @onready var shooter: Shooter = %Shooter
 @onready var invul_timer: Timer = %InvulTimer
+@onready var body: AnimatedSprite2D = %Body
+@onready var head: AnimatedSprite2D = %Head
 
 func _connect_health_signals():
 	health_component.healed.connect(on_health_changed)
@@ -70,6 +72,18 @@ func _physics_process(delta: float) -> void:
 		# Apply friction when no input
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
+	if velocity == Vector2.ZERO:
+		body.play("default")
+	elif abs(velocity.x)  > velocity.y:
+		if velocity.x > 0:
+			body.scale.x = -0.4
+			body.play("walk_side")
+		else:
+			body.scale.x = 0.4
+			body.play("walk_side")
+	else:
+		body.play("walk_updown")
+	
 	move_and_slide()
 
 
@@ -77,6 +91,7 @@ func shoot():
 	if not attack_timer.is_stopped():
 		return
 	
+	head.play("shoot")
 	AudioManager.play("player_shoot")
 	attack_timer.start()
 	shooter.shoot(last_direction, amount_per_shot, time_between_shots,number_of_shots,items)
@@ -102,6 +117,7 @@ func swap_items(slot:int)->void:
 	item.resource = previous_item
 
 
+
 func check_items():
 	number_of_shots = 1
 	amount_per_shot = 1
@@ -121,8 +137,6 @@ func _on_death():
 
 func _on_item_area_entered(other_area:Area2D)->void:
 	var parent :Node = other_area.get_parent()
-	print(other_area)
-	print(parent)
 	if parent is Pickup:
 		parent.despawn()
 		health_component.heal(1)
