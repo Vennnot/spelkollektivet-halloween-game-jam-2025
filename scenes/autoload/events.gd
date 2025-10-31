@@ -8,3 +8,5 @@ signal item_changed(slot:int,texture:Texture)
 signal room_changed(active_room:Room	)
 
 signal game_over
+
+signal enemy_died(sprite:Texture2D)

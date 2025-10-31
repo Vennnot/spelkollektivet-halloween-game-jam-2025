@@ -1,30 +1,26 @@
 class_name Enemy
 extends CharacterBody2D
 
-const KITSUGIRI := preload("uid://brou6b3nhxkx8")
 const PICKUP_HEALTH = preload("uid://c7w0femtixw5y")
 
+@export var explosion : PackedScene = load("res://scenes/enemies/bomb_enemy/explosion.tscn")
 @export var health_component: HealthComponent
 @export var movement_component: MovementComponent
 @export var hitbox: HitboxComponent
 
 @onready var sprite: Sprite2D = %Sprite
-@onready var kitsugiri_timer: Timer = %KitsugiriTimer
 @onready var visuals: Node2D = %Visuals
 @onready var ghost: Sprite2D = %Ghost
 @onready var item: Sprite2D = %Item
 
 var defeated := false
-var kitsugiri_shader : Shader
 var player : Player
 var bullet_sprite : Sprite2D
 var spawned := false
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)
-	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
-	
-	kitsugiri_shader = KITSUGIRI.duplicate()
+
 	visuals.hide()
 	player = get_tree().get_first_node_in_group("player")
 	await get_tree().create_timer(0.01).timeout
@@ -56,7 +52,7 @@ func spawn():
 	tweene.tween_property(ghost, "self_modulate", Color.TRANSPARENT, 1)
 	tweene.tween_property(self, "global_position", Vector2(spawn_pos.x, spawn_pos.y), 1)  
 	await tweene.finished
-
+	AudioManager.play("enemy_spawn")
 	shader.set_shader_parameter("maxLineWidth",10)
 	shader.set_shader_parameter("minLineWidth",5)
 	spawned = true
@@ -85,7 +81,11 @@ func bullet_explosion():
 	tween.tween_property(bullet_sprite, "scale",Vector2(1.5,1.5),3)
 
 func _on_pomegranate_timer_timeout():
-	health_component.damage(5)
+	health_component.damage(10)
+	var expats :Explosion=explosion.instantiate()  
+	get_tree().get_first_node_in_group("entities").add_child(expats)
+	expats.global_position = global_position
+	expats.player = false
 	bullet_sprite.queue_free()
 
 func _on_death()->void:
@@ -93,16 +93,11 @@ func _on_death()->void:
 	sprite.modulate = Color.WHITE
 	visuals.self_modulate = Color.WHITE
 	sprite.self_modulate = Color.WHITE
-	sprite.material = ShaderMaterial.new()
-	sprite.material.shader = kitsugiri_shader
-	var shader := sprite.material as ShaderMaterial
-	shader.set_shader_parameter("shine_size",10)
-	shader.set_shader_parameter("shine_intensity",1)
+	Events.enemy_died.emit(sprite.texture)
 	defeated = true
 	spawn_health()
 	AudioManager.play("enemy_death")
-	kitsugiri_timer.start()
-
+	queue_free()
 
 func spawn_health():
 	if randf_range(0,1)>0.5:
@@ -112,13 +107,3 @@ func spawn_health():
 	var entities_node = get_tree().get_first_node_in_group("entities")
 	entities_node.call_deferred("add_child", pickup)
 	pickup.global_position = global_position
-
-
-func _on_kitsugiri_timer_timeout()->void:
-	var shader := sprite.material as ShaderMaterial
-	var intensity_value : float= shader.get_shader_parameter("shine_intensity")
-	
-	var tween :=create_tween()
-	tween.tween_property(sprite,"material:shader_parameter/shine_intensity",clamp(intensity_value+randf_range(-0.5,0.5),2,3.5),0.6)
-	kitsugiri_timer.start()
-	queue_free()

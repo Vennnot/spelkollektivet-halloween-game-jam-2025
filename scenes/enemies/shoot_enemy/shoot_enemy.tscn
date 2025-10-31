@@ -112,7 +112,7 @@ shape = SubResource("CircleShape2D_nb6gf")
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.8
+wait_time = 1.5
 autostart = true
 
 [node name="Shooter" parent="." instance=ExtResource("6_snhuf")]

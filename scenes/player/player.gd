@@ -1,8 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
-
 const ITEM := preload("res://scenes/item/item.tscn")
+const KITSUGIRI = preload("uid://dck0xolowmhwk")
+
 
 @export var move_speed: float = 400.0
 @export var base_speed : float = 400.0
@@ -32,12 +33,19 @@ func _connect_health_signals():
 	health_component.damaged.connect(on_health_changed)
 
 func _ready() -> void:
+	Events.enemy_died.connect(_on_enemy_died)
 	invul_timer.timeout.connect(_on_invul_timer_timeout)
 	health_component.died.connect(_on_death)
 	health_component.damaged.connect(_on_damaged)
 	item_area.area_entered.connect(_on_item_area_entered)
 	item_area.area_exited.connect(_on_item_area_exited)
 	_connect_health_signals()
+
+func _on_enemy_died(s:Texture2D):
+	var scene :Kitsugiri= KITSUGIRI.instantiate()
+	add_child(scene)
+	scene.global_position = global_position
+	scene.texture = s
 
 
 func _on_invul_timer_timeout():

@@ -1,8 +1,6 @@
 class_name BombEnemy
 extends Enemy
 
-const EXPLOSION = preload("uid://dke1jixbfq6sh")
-
 func _ready() -> void:
 	super._ready()
 	pulse_effect(6, 12, 15, 7) 
@@ -45,7 +43,7 @@ func pulse_effect(total_time: float, cycles: int, scale_increase_percent: float,
 
 func explode():
 	AudioManager.play("enemy_explosion")
-	var explosion := EXPLOSION.instantiate()
-	get_tree().get_first_node_in_group("entities").add_child(explosion)
-	explosion.global_position = global_position
+	var expats := explosion.instantiate()
+	get_tree().get_first_node_in_group("entities").add_child(expats)
+	expats.global_position = global_position
 	queue_free()
