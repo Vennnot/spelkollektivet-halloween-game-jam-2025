@@ -40,6 +40,9 @@ func check_if_room_done():
 			if not c.health_component.health_depleted:
 				return
 	room_complete = true
+	for d in $Doors.get_children():
+		if d is Door:
+			d.room_finished()
 	if not drops_item:
 		return
 	drops_item = false
@@ -50,7 +53,3 @@ func check_if_room_done():
 	item_scene.resource = item_to_spawn
 	item_scene.update_visuals()
 	item_scene.global_position = camera_pos.global_position
-	
-	for d in $Doors.get_children():
-		if d is Door:
-			d.room_finished()

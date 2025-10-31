@@ -56,7 +56,7 @@ hitbox = NodePath("HitboxComponent")
 [node name="HealthComponent" type="Node" parent="Components"]
 unique_name_in_owner = true
 script = ExtResource("2_5s2lb")
-health = 5
+health = 7
 metadata/_custom_type_script = "uid://dn262ns41ewjq"
 
 [node name="DistanceMovementComponent" type="Node2D" parent="Components"]
@@ -93,5 +93,5 @@ shape = SubResource("CircleShape2D_nb6gf")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 5.0
 autostart = true

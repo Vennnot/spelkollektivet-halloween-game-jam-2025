@@ -190,9 +190,10 @@ position = Vector2(480, -277)
 [node name="Marker2D3" type="Marker2D" parent="Map/NormalRoom2"]
 position = Vector2(504, 215)
 
-[node name="NormalRoom3" parent="Map" instance=ExtResource("7_o6xl0")]
+[node name="NormalRoom3" parent="Map" node_paths=PackedStringArray("enemy_spawn_pos") instance=ExtResource("7_o6xl0")]
 z_index = -10
 position = Vector2(4423, -1298)
+enemy_spawn_pos = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
 
 [node name="NorthDoor" parent="Map/NormalRoom3/Doors" index="0" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../ElRoom2/Doors/NorthDoor")
@@ -202,6 +203,105 @@ connected_door = NodePath("../../../NormalRoom2/Doors/NorthDoor")
 
 [node name="WestDoor" parent="Map/NormalRoom3/Doors" index="3" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../ElRoom1/Doors/WestDoor")
+
+[node name="Rock" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 354)
+
+[node name="Rock2" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 300)
+
+[node name="Rock3" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 249)
+
+[node name="Rock4" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 193)
+
+[node name="Rock5" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 144)
+
+[node name="Rock6" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 95)
+
+[node name="Rock7" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 45)
+
+[node name="Rock8" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, 2)
+
+[node name="Rock9" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, -45)
+
+[node name="Rock10" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-444, -94)
+
+[node name="Rock11" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, 92)
+
+[node name="Rock12" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, 38)
+
+[node name="Rock13" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -13)
+
+[node name="Rock14" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -69)
+
+[node name="Rock15" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -118)
+
+[node name="Rock16" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -167)
+
+[node name="Rock17" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -217)
+
+[node name="Rock18" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -260)
+
+[node name="Rock19" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -307)
+
+[node name="Rock20" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(394, -356)
+
+[node name="Rock21" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(2, -142)
+
+[node name="Rock22" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(75, -142)
+
+[node name="Rock23" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-73, -142)
+
+[node name="Rock24" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-142, -142)
+
+[node name="Rock25" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(143, -142)
+
+[node name="Rock26" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(2, 152)
+
+[node name="Rock27" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(75, 152)
+
+[node name="Rock28" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-73, 152)
+
+[node name="Rock29" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(-142, 152)
+
+[node name="Rock30" parent="Map/NormalRoom3" instance=ExtResource("5_ya4ey")]
+position = Vector2(143, 152)
+
+[node name="Marker2D" type="Marker2D" parent="Map/NormalRoom3"]
+position = Vector2(-609, 249)
+
+[node name="Marker2D2" type="Marker2D" parent="Map/NormalRoom3"]
+position = Vector2(568, -255)
+
+[node name="Marker2D3" type="Marker2D" parent="Map/NormalRoom3"]
+position = Vector2(0, -4)
 
 [node name="ElRoom1" parent="Map" instance=ExtResource("5_85g3d")]
 z_index = -10
@@ -215,6 +315,36 @@ connected_door = NodePath("../../../VRoom2/Doors/SouthDoor")
 
 [node name="WestDoor" parent="Map/ElRoom1/Doors" index="1" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../NormalRoom3/Doors/WestDoor")
+
+[node name="Spikes" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(-602, 108.000046)
+
+[node name="Spikes2" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(-602, 166.00005)
+
+[node name="Spikes3" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(-330, 268.00003)
+
+[node name="Spikes4" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(-335.00003, 22.00003)
+
+[node name="Spikes5" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(-81.000015, 136)
+
+[node name="Spikes6" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(141, 275)
+
+[node name="Spikes7" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(151.99997, 16)
+
+[node name="Spikes8" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(539, 131.99997)
+
+[node name="Spikes9" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(570, -145.00003)
+
+[node name="Spikes10" parent="Map/ElRoom1" instance=ExtResource("7_trceg")]
+position = Vector2(535, -145.00003)
 
 [node name="VRoom2" parent="Map" instance=ExtResource("6_choun")]
 z_index = -10
@@ -260,9 +390,52 @@ drops_item = false
 [node name="SouthDoor" parent="Map/NormalRoom4/Doors" index="1" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../VRoom4/Doors/NorthDoor")
 
-[node name="VRoom1" parent="Map" instance=ExtResource("6_choun")]
+[node name="Web" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(-11, 199)
+
+[node name="Web2" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(-330, 36)
+
+[node name="Web3" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(300, 17)
+
+[node name="Web4" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(-4, -234)
+
+[node name="Web5" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(444, -198)
+
+[node name="Web6" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(440, 263)
+
+[node name="Web7" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(-540, 252)
+
+[node name="Web8" parent="Map/NormalRoom4" instance=ExtResource("6_eb6dy")]
+position = Vector2(-557, -245)
+
+[node name="Rock" parent="Map/NormalRoom4" instance=ExtResource("5_ya4ey")]
+position = Vector2(-210, 184)
+
+[node name="Rock2" parent="Map/NormalRoom4" instance=ExtResource("5_ya4ey")]
+position = Vector2(210, 199)
+
+[node name="Rock3" parent="Map/NormalRoom4" instance=ExtResource("5_ya4ey")]
+position = Vector2(229, -159)
+
+[node name="Rock4" parent="Map/NormalRoom4" instance=ExtResource("5_ya4ey")]
+position = Vector2(-210, -144)
+
+[node name="Rock5" parent="Map/NormalRoom4" instance=ExtResource("5_ya4ey")]
+position = Vector2(-510, -20)
+
+[node name="Rock6" parent="Map/NormalRoom4" instance=ExtResource("5_ya4ey")]
+position = Vector2(480, 10)
+
+[node name="VRoom1" parent="Map" node_paths=PackedStringArray("enemy_spawn_pos") instance=ExtResource("6_choun")]
 z_index = -10
 position = Vector2(4423, 1257)
+enemy_spawn_pos = [NodePath("Marker2D")]
 drops_item = false
 
 [node name="NorthDoor" parent="Map/VRoom1/Doors" index="0" node_paths=PackedStringArray("connected_door")]
@@ -271,17 +444,82 @@ connected_door = NodePath("../../../NormalRoom2/Doors/SouthDoor")
 [node name="SouthDoor" parent="Map/VRoom1/Doors" index="1" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../NormalRoom5/Doors/NorthDoor")
 
-[node name="NormalRoom5" parent="Map" instance=ExtResource("7_o6xl0")]
+[node name="Marker2D" type="Marker2D" parent="Map/VRoom1"]
+position = Vector2(4, 251)
+
+[node name="Web" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(-123, -250)
+
+[node name="Web2" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(-16, -153)
+
+[node name="Web3" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(100, -246)
+
+[node name="Web4" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(99, -38)
+
+[node name="Web5" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(-113, -31)
+
+[node name="Web6" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(-8, 89)
+
+[node name="Web7" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(-114, 194)
+
+[node name="Web8" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(97, 193)
+
+[node name="Web9" parent="Map/VRoom1" instance=ExtResource("6_eb6dy")]
+position = Vector2(5, 295)
+
+[node name="NormalRoom5" parent="Map" node_paths=PackedStringArray("enemy_spawn_pos") instance=ExtResource("7_o6xl0")]
 z_index = -10
 position = Vector2(4423, 2543)
+enemy_spawn_pos = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
 
 [node name="NorthDoor" parent="Map/NormalRoom5/Doors" index="0" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../VRoom1/Doors/SouthDoor")
 
-[node name="ElRoom2" parent="Map" instance=ExtResource("5_85g3d")]
+[node name="Spikes" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(-408, -173)
+
+[node name="Spikes2" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(443, -170)
+
+[node name="Spikes3" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(452, 182)
+
+[node name="Spikes4" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(-427, 207)
+
+[node name="Spikes5" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(-221, -3)
+
+[node name="Spikes6" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(0, -177)
+
+[node name="Spikes7" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(240, -33)
+
+[node name="Spikes8" parent="Map/NormalRoom5" instance=ExtResource("7_trceg")]
+position = Vector2(4, 160)
+
+[node name="Marker2D" type="Marker2D" parent="Map/NormalRoom5"]
+position = Vector2(-430, 28)
+
+[node name="Marker2D2" type="Marker2D" parent="Map/NormalRoom5"]
+position = Vector2(474, 19)
+
+[node name="Marker2D3" type="Marker2D" parent="Map/NormalRoom5"]
+position = Vector2(10, 220)
+
+[node name="ElRoom2" parent="Map" node_paths=PackedStringArray("enemy_spawn_pos") instance=ExtResource("5_85g3d")]
 z_index = -10
 position = Vector2(4947, -2632)
 scale = Vector2(-1, -1)
+enemy_spawn_pos = [NodePath("Marker2D"), NodePath("Marker2D2")]
 drops_item = false
 
 [node name="NorthDoor" parent="Map/ElRoom2/Doors" index="0" node_paths=PackedStringArray("connected_door")]
@@ -290,15 +528,84 @@ connected_door = NodePath(".")
 [node name="WestDoor" parent="Map/ElRoom2/Doors" index="1" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../NormalRoom6/Doors/WestDoor")
 
-[node name="NormalRoom6" parent="Map" instance=ExtResource("7_o6xl0")]
+[node name="Web" parent="Map/ElRoom2" instance=ExtResource("6_eb6dy")]
+position = Vector2(540, -70)
+scale = Vector2(3, 3)
+
+[node name="Web2" parent="Map/ElRoom2" instance=ExtResource("6_eb6dy")]
+position = Vector2(167, 169)
+scale = Vector2(3, 3)
+
+[node name="Web3" parent="Map/ElRoom2" instance=ExtResource("6_eb6dy")]
+position = Vector2(-370, 174)
+scale = Vector2(3, 3)
+
+[node name="Marker2D" type="Marker2D" parent="Map/ElRoom2"]
+position = Vector2(546, 192)
+rotation = 3.1415927
+
+[node name="Marker2D2" type="Marker2D" parent="Map/ElRoom2"]
+position = Vector2(-628, 192)
+rotation = 3.1415927
+
+[node name="NormalRoom6" parent="Map" node_paths=PackedStringArray("enemy_spawn_pos") instance=ExtResource("7_o6xl0")]
 z_index = -10
-position = Vector2(7537, -2735)
+position = Vector2(7537, -2736)
+enemy_spawn_pos = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5")]
 
 [node name="WestDoor" parent="Map/NormalRoom6/Doors" index="3" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../ElRoom2/Doors/WestDoor")
 
 [node name="BossSpawner" parent="Map/NormalRoom6" instance=ExtResource("10_eb6dy")]
 position = Vector2(-5931, -5253)
+
+[node name="Rock" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-696, -242)
+
+[node name="Rock2" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-614, -244)
+
+[node name="Rock3" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-535, -242)
+
+[node name="Rock4" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-527, -195)
+
+[node name="Rock5" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-527, -150)
+
+[node name="Rock6" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-690, 146)
+
+[node name="Rock7" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-605, 148)
+
+[node name="Rock8" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-531, 146)
+
+[node name="Rock9" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-526, 101)
+
+[node name="Rock10" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-524, 61)
+
+[node name="Rock11" parent="Map/NormalRoom6" instance=ExtResource("5_ya4ey")]
+position = Vector2(-522, 22)
+
+[node name="Marker2D" type="Marker2D" parent="Map/NormalRoom6"]
+position = Vector2(-192, -325)
+
+[node name="Marker2D2" type="Marker2D" parent="Map/NormalRoom6"]
+position = Vector2(-172, 264)
+
+[node name="Marker2D3" type="Marker2D" parent="Map/NormalRoom6"]
+position = Vector2(330, 2)
+
+[node name="Marker2D4" type="Marker2D" parent="Map/NormalRoom6"]
+position = Vector2(604, -319)
+
+[node name="Marker2D5" type="Marker2D" parent="Map/NormalRoom6"]
+position = Vector2(626, 285)
 
 [node name="MainUI" parent="." instance=ExtResource("5_tbgi4")]
 unique_name_in_owner = true

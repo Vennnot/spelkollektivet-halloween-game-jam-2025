@@ -41,7 +41,7 @@ animations = [{
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
-radius = 52.153618
+radius = 23.021729
 
 [sub_resource type="Animation" id="Animation_qek5x"]
 length = 0.001
@@ -74,7 +74,6 @@ z_index = 5
 collision_layer = 2
 collision_mask = 257
 script = ExtResource("1_dovo2")
-base_speed = 2000.0
 
 [node name="Visuals" type="Node2D" parent="."]
 
@@ -115,6 +114,7 @@ collision_layer = 2
 collision_mask = 120
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ItemArea"]
+position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_gmlin")
 
 [node name="Shooter" parent="." instance=ExtResource("4_lvxji")]

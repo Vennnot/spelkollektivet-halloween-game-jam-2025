@@ -121,6 +121,8 @@ func _on_death():
 
 func _on_item_area_entered(other_area:Area2D)->void:
 	var parent :Node = other_area.get_parent()
+	print(other_area)
+	print(parent)
 	if parent is Pickup:
 		parent.despawn()
 		health_component.heal(1)

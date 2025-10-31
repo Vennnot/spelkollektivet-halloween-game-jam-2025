@@ -56,7 +56,7 @@ hitbox = NodePath("HitboxComponent")
 [node name="HealthComponent" type="Node" parent="Components"]
 unique_name_in_owner = true
 script = ExtResource("2_38ino")
-health = 4
+health = 3
 metadata/_custom_type_script = "uid://dn262ns41ewjq"
 
 [node name="LinearMovementComponent" type="Node2D" parent="Components"]
