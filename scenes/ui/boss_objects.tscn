@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc8o3mpwtvfhr" path="res://scenes/ui/boss_objects.gd" id="1_fsiba"]
 [ext_resource type="Shader" uid="uid://dnt7haitfb7vo" path="res://resources/shaders/aura.gdshader" id="2_g5dua"]
-[ext_resource type="Texture2D" uid="uid://bmw3hku8ekidj" path="res://resources/items/mushroom_brown.svg" id="3_u4vdn"]
+[ext_resource type="Texture2D" uid="uid://d4iyn5uevjjdt" path="res://resources/items/Bubble_Gum.png" id="3_g5dua"]
 
 [sub_resource type="Gradient" id="Gradient_jboes"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.30980393, 1, 1)
@@ -51,7 +51,7 @@ material = SubResource("ShaderMaterial_a2x8y")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_u4vdn")
+texture = ExtResource("3_g5dua")
 expand_mode = 1
 stretch_mode = 5
 
@@ -61,7 +61,7 @@ material = SubResource("ShaderMaterial_a2x8y")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_u4vdn")
+texture = ExtResource("3_g5dua")
 expand_mode = 1
 stretch_mode = 5
 
@@ -71,7 +71,7 @@ material = SubResource("ShaderMaterial_a2x8y")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_u4vdn")
+texture = ExtResource("3_g5dua")
 expand_mode = 1
 stretch_mode = 5
 
@@ -81,7 +81,7 @@ material = SubResource("ShaderMaterial_a2x8y")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_u4vdn")
+texture = ExtResource("3_g5dua")
 expand_mode = 1
 stretch_mode = 5
 
@@ -91,7 +91,7 @@ material = SubResource("ShaderMaterial_a2x8y")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_u4vdn")
+texture = ExtResource("3_g5dua")
 expand_mode = 1
 stretch_mode = 5
 
@@ -101,6 +101,6 @@ material = SubResource("ShaderMaterial_a2x8y")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_u4vdn")
+texture = ExtResource("3_g5dua")
 expand_mode = 1
 stretch_mode = 5

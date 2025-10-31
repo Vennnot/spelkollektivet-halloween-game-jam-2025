@@ -15,7 +15,7 @@ var resource : ItemResource :
 		update_visuals()
 
 func _ready() -> void:
-	resource = load("res://resources/items/item_bubblegum.tres")
+	pass
 
 func update_visuals():
 	sprite.texture = resource.sprite
@@ -24,6 +24,7 @@ func update_visuals():
 func take_away():
 	animation_player.stop()
 	ghost.show()
+	AudioManager.play("item_abandoned")
 	EnemySpawner.update_variables(resource)
 	var tween := create_tween()
 	tween.tween_property(self,"global_position",Vector2(global_position.x,-600),1)

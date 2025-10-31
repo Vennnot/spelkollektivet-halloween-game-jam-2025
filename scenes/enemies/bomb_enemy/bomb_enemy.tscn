@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmc3p7oryp51n"]
+[gd_scene load_steps=17 format=3 uid="uid://cmc3p7oryp51n"]
 
 [ext_resource type="Script" uid="uid://1gnkhaj3ra8k" path="res://scenes/enemies/bomb_enemy/bomb_enemy.gd" id="1_nd0v1"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_ri1i3"]
 [ext_resource type="Script" uid="uid://dx6clvwpdouph" path="res://components/movement_component/linear_movement_component.gd" id="3_a5nap"]
 [ext_resource type="Texture2D" uid="uid://cw42sutvtyapo" path="res://scenes/enemies/bomb_enemy/Vase1.png" id="4_nd0v1"]
+[ext_resource type="Texture2D" uid="uid://cf8h2047yecq3" path="res://assets/Ghost.png" id="4_pfck4"]
 [ext_resource type="Shader" uid="uid://dnt7haitfb7vo" path="res://resources/shaders/aura.gdshader" id="4_tgpfx"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_bjihd"]
+[ext_resource type="Texture2D" uid="uid://fqoudlis7q58" path="res://resources/items/Pomegranate_.png" id="5_pfck4"]
 
 [sub_resource type="Gradient" id="Gradient_7wgal"]
 colors = PackedColorArray(0.7500901, 0.6168709, 0.9959566, 1, 1, 1, 1, 1)
@@ -67,6 +69,18 @@ metadata/_custom_type_script = "uid://dx6clvwpdouph"
 
 [node name="Visuals" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Ghost" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-2, -155)
+texture = ExtResource("4_pfck4")
+
+[node name="Item" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -75)
+texture = ExtResource("5_pfck4")
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true

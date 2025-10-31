@@ -11,27 +11,62 @@ const PICKUP_HEALTH = preload("uid://c7w0femtixw5y")
 @onready var sprite: Sprite2D = %Sprite
 @onready var kitsugiri_timer: Timer = %KitsugiriTimer
 @onready var visuals: Node2D = %Visuals
+@onready var ghost: Sprite2D = %Ghost
+@onready var item: Sprite2D = %Item
 
 var defeated := false
 var kitsugiri_shader : Shader
 var player : Player
 var bullet_sprite : Sprite2D
-@export var item_texture : Texture2D
+var spawned := false
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)
 	kitsugiri_timer.timeout.connect(_on_kitsugiri_timer_timeout)
 	
 	kitsugiri_shader = KITSUGIRI.duplicate()
-	
-	await get_tree().create_timer(0.1).timeout
-	
+	visuals.hide()
 	player = get_tree().get_first_node_in_group("player")
+	await get_tree().create_timer(0.01).timeout
+	spawn()
+
+
+func spawn():
+	if self is BossEnemy:
+		visuals.show()
+		spawned = true
+		return
 	
+	visuals.show()
+	var spawn_pos := global_position
+	global_position = Vector2(spawn_pos.x, spawn_pos.y - 500)
+	var shader := sprite.material as ShaderMaterial
+	shader.set_shader_parameter("maxLineWidth",0)
+	shader.set_shader_parameter("minLineWidth",0)
+	ghost.show()
+	item.show()
+
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", Vector2(spawn_pos.x, spawn_pos.y + 10), 1) 
+	await tween.finished
+
+	var tweene := create_tween()
+	tweene.set_parallel(true)
+	tweene.tween_property(item, "self_modulate", Color.TRANSPARENT, 1)
+	tweene.tween_property(ghost, "self_modulate", Color.TRANSPARENT, 1)
+	tweene.tween_property(self, "global_position", Vector2(spawn_pos.x, spawn_pos.y), 1)  
+	await tweene.finished
+
+	shader.set_shader_parameter("maxLineWidth",10)
+	shader.set_shader_parameter("minLineWidth",5)
+	spawned = true
 
 
 func _physics_process(delta: float) -> void:
 	if defeated:
+		return
+	
+	if not spawned:
 		return
 	
 	if not player:

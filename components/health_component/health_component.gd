@@ -19,6 +19,8 @@ func _set_health(value:int):
 	health = value
 	if health <= 0:
 		health_depleted = true
+		if get_parent().get_parent() is Player:
+			AudioManager.play("player_died")
 		died.emit()
 
 
@@ -38,6 +40,8 @@ func damage(value:int):
 	damaged.emit()
 	if get_parent().get_parent() is Enemy:
 		AudioManager.play("enemy_damaged")
+	if get_parent().get_parent() is Player:
+		AudioManager.play("player_damaged")
 
 
 func kill():

@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0hl3bf6323tt"]
+[gd_scene load_steps=17 format=3 uid="uid://d0hl3bf6323tt"]
 
 [ext_resource type="Script" uid="uid://cdwndcpxya8u7" path="res://scenes/enemies/chase_enemy/chase_enemy.gd" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_38ino"]
 [ext_resource type="Script" uid="uid://dx6clvwpdouph" path="res://components/movement_component/linear_movement_component.gd" id="3_lu5c6"]
 [ext_resource type="Shader" uid="uid://dnt7haitfb7vo" path="res://resources/shaders/aura.gdshader" id="4_dckru"]
+[ext_resource type="Texture2D" uid="uid://cf8h2047yecq3" path="res://assets/Ghost.png" id="4_dilp5"]
 [ext_resource type="Texture2D" uid="uid://ba5msajgwaohx" path="res://scenes/enemies/chase_enemy/Vase4.png" id="4_w6axa"]
+[ext_resource type="Texture2D" uid="uid://dmmxfy4csn8u2" path="res://resources/items/Croissant_.png" id="5_dilp5"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="5_lu5c6"]
 
 [sub_resource type="Gradient" id="Gradient_fgvr3"]
@@ -66,6 +68,18 @@ metadata/_custom_type_script = "uid://dx6clvwpdouph"
 
 [node name="Visuals" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Ghost" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-2, -155)
+texture = ExtResource("4_dilp5")
+
+[node name="Item" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -75)
+texture = ExtResource("5_dilp5")
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true

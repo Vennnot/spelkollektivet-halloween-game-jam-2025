@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmw3hku8ekidj"
-path="res://.godot/imported/mushroom_brown.svg-5f2df3a8f10ff636b9e11352586914a7.ctex"
+uid="uid://ysb6v52lgk86"
+path="res://.godot/imported/boss.png-5fca630e719cdb386e9d144d3e953d7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/items/mushroom_brown.svg"
-dest_files=["res://.godot/imported/mushroom_brown.svg-5f2df3a8f10ff636b9e11352586914a7.ctex"]
+source_file="res://scenes/enemies/boss_enemy/boss.png"
+dest_files=["res://.godot/imported/boss.png-5fca630e719cdb386e9d144d3e953d7c.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

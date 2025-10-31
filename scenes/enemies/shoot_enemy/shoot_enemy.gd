@@ -9,6 +9,8 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 
 func _physics_process(delta: float) -> void:
+	if not spawned:
+		return
 	super._physics_process(delta)
 	
 	if player:

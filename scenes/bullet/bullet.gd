@@ -92,12 +92,13 @@ func handle_bounce(collision: KinematicCollision2D):
 	# Update velocity with the new direction (maintain speed)
 	var current_speed = velocity.length()
 	velocity = varied_direction.normalized() * current_speed
-	
+	AudioManager.play("bullet_impact")
 	# Increment bounce counter
 	current_bounces += 1
 
 
 func destroy():
+	AudioManager.play("bullet_impact")
 	call_deferred("spawn_puddle")
 	queue_free()
 

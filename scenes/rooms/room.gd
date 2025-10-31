@@ -40,6 +40,7 @@ func check_if_room_done():
 			if not c.health_component.health_depleted:
 				return
 	room_complete = true
+	AudioManager.play("room_cleared")
 	for d in $Doors.get_children():
 		if d is Door:
 			d.room_finished()
