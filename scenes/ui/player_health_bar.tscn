@@ -31,4 +31,3 @@ texture = ExtResource("2_2cyvc")
 [node name="TextureRect3" type="TextureRect" parent="HeartContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("2_2cyvc")

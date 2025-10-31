@@ -74,6 +74,7 @@ z_index = 5
 collision_layer = 2
 collision_mask = 257
 script = ExtResource("1_dovo2")
+base_speed = 2000.0
 
 [node name="Visuals" type="Node2D" parent="."]
 

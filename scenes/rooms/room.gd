@@ -17,6 +17,8 @@ func _ready() -> void:
 
 func start():
 	await get_tree().create_timer(1.5).timeout
+	if enemy_spawn_pos.is_empty():
+		room_complete = true
 	if room_complete:
 		for d in $Doors.get_children():
 			if d is Door:
