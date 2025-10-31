@@ -78,7 +78,8 @@ alignment = 1
 
 [node name="PlayerObjects" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_travt")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 8
 
 [node name="BossObjects" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_46cp5")]
 unique_name_in_owner = true
