@@ -1,6 +1,7 @@
 class_name Bullet extends CharacterBody2D
 
 const PUDDLE = preload("uid://b8qvs03ix3tmq")
+const EVIL_PUDDLE = preload("uid://co7bms35ubv2i")
 
 var launched := true
 

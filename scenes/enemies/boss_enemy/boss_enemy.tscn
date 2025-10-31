@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://beqnfnjxu5dhb"]
+[gd_scene load_steps=18 format=3 uid="uid://beqnfnjxu5dhb"]
 
 [ext_resource type="Script" uid="uid://b0ka7esg1uyhb" path="res://scenes/enemies/boss_enemy/boss_enemy.gd" id="1_e26u1"]
 [ext_resource type="Script" uid="uid://dn262ns41ewjq" path="res://components/health_component/health_component.gd" id="2_l33lp"]
 [ext_resource type="Script" uid="uid://ceu11hdslmfvb" path="res://components/movement_component/distance_movement_component.gd" id="3_e26u1"]
 [ext_resource type="Shader" uid="uid://dnt7haitfb7vo" path="res://resources/shaders/aura.gdshader" id="4_34dsw"]
 [ext_resource type="Texture2D" uid="uid://cf8h2047yecq3" path="res://assets/Ghost.png" id="4_u137b"]
-[ext_resource type="Texture2D" uid="uid://d4iyn5uevjjdt" path="res://resources/items/Bubble_Gum.png" id="5_apj76"]
 [ext_resource type="Texture2D" uid="uid://ysb6v52lgk86" path="res://scenes/enemies/boss_enemy/boss.png" id="5_ujfe2"]
 [ext_resource type="Script" uid="uid://ce6uegni6rea1" path="res://components/boxes/hitbox_component.gd" id="6_hm784"]
 [ext_resource type="PackedScene" uid="uid://bulah533v2ju7" path="res://scenes/shooter/shooter.tscn" id="7_ujfe2"]
@@ -81,7 +80,6 @@ texture = ExtResource("4_u137b")
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -75)
-texture = ExtResource("5_apj76")
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true

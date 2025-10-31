@@ -18,6 +18,7 @@ var items : Array[ItemResource] = [null,null]
 var amount_per_shot := 1
 var time_between_shots := 0.05
 var number_of_shots := 1
+@onready var visuals: Node2D = %Visuals
 
 
 @onready var health_component: HealthComponent = $Components/HealthComponent
@@ -58,6 +59,9 @@ func _on_invul_timer_timeout():
 func _on_damaged():
 	invul_timer.start()
 	health_component.disabled = true
+	var tween :=create_tween()
+	tween.tween_property(visuals,"modulate",Color.RED,0.2)
+	tween.tween_property(visuals,"modulate",Color.WHITE,0.2)
 
 
 func _physics_process(delta: float) -> void:

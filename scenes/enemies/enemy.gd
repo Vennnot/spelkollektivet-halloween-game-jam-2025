@@ -20,7 +20,11 @@ var spawned := false
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)
-
+	health_component.damaged.connect(func(): 
+		var tween :=create_tween()
+		tween.tween_property(visuals,"modulate",Color.RED,0.2)
+		tween.tween_property(visuals,"modulate",Color.WHITE,0.2)
+	)
 	visuals.hide()
 	player = get_tree().get_first_node_in_group("player")
 	await get_tree().create_timer(0.01).timeout

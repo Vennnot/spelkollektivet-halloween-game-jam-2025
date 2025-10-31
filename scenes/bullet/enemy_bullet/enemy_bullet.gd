@@ -85,7 +85,7 @@ func spawn_puddle():
 	if not nutella:
 		return
 	
-	var nutella_scene :Puddle= PUDDLE.instantiate()
+	var nutella_scene :Puddle= EVIL_PUDDLE.instantiate()
 	get_tree().get_first_node_in_group("entities").add_child(nutella_scene)
 	nutella_scene.global_position = global_position
 

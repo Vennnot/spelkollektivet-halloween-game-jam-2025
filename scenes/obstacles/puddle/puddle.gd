@@ -20,6 +20,8 @@ func _on_area_entered(other_area:Area2D):
 	var parent := other_area.get_parent()
 	if parent is Enemy:
 		parent.health_component.damage(1)
+	if parent is Player:
+		parent.health_component.damage(1)
 
 
 func despawn():

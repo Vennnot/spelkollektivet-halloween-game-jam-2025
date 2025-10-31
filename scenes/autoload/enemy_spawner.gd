@@ -11,6 +11,8 @@ const BOMB_ENEMY = preload("uid://cmc3p7oryp51n")
 const CHASE_ENEMY = preload("uid://d0hl3bf6323tt")
 const SHOOT_ENEMY = preload("uid://cd1vjws6681ft")
 const SPAWN_ENEMY = preload("uid://dy4l1vdcborhi")
+const BOUNCE_ENEMY = preload("uid://bso4msvkhru8m")
+const PUDDLE_ENEMY = preload("uid://7wsyayhj1tqm")
 
 
 func reset_variables():
@@ -43,11 +45,11 @@ func fetch_random_enemy()->PackedScene:
 	if watermelon:
 		possible_enemies.append(SHOOT_ENEMY)
 	elif chestnut:
-		possible_enemies.append(CHASE_ENEMY)
-	elif nutella:
 		possible_enemies.append(SPAWN_ENEMY)
+	elif nutella:
+		possible_enemies.append(PUDDLE_ENEMY)
 	elif bubblegum:
-		possible_enemies.append(BOMB_ENEMY)
+		possible_enemies.append(BOUNCE_ENEMY)
 	elif pomegranate:
 		possible_enemies.append(BOMB_ENEMY)
 	elif croissant:
