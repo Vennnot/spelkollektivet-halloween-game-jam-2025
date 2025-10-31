@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://dekltjjwowiir"]
+[gd_scene load_steps=8 format=3 uid="uid://dekltjjwowiir"]
 
 [ext_resource type="Script" uid="uid://c3a8t30mo8v3t" path="res://scenes/item/item.gd" id="1_vcqat"]
 [ext_resource type="Texture2D" uid="uid://c5fe8oxbomdx8" path="res://icon.svg" id="2_vu0ti"]
+[ext_resource type="Texture2D" uid="uid://d0e44w4cqhx8g" path="res://scenes/obstacles/puddle/Puddles2.png" id="3_vu0ti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vcqat"]
 radius = 36.124783
+
+[sub_resource type="Animation" id="Animation_imnf0"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.65, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.0, 0.08726646259971647]
+}
+
+[sub_resource type="Animation" id="Animation_pg5me"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t18tp"]
+_data = {
+&"RESET": SubResource("Animation_pg5me"),
+&"idle": SubResource("Animation_imnf0")
+}
 
 [node name="Item" type="Node2D"]
 process_mode = 3
@@ -21,6 +59,7 @@ texture = ExtResource("2_vu0ti")
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vu0ti")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 16
@@ -30,3 +69,8 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_vcqat")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_t18tp")
+}
+autoplay = "idle"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxc2ke4hpngc2"]
+[gd_scene load_steps=14 format=3 uid="uid://dxc2ke4hpngc2"]
 
 [ext_resource type="Script" uid="uid://c7netl5wnnchy" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dxxosyemopp30" path="res://scenes/player/player.tscn" id="2_0wfyh"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvy8uqjpawxjw" path="res://scenes/rooms/normal_room/normal_room.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://o7lc5fqt27oc" path="res://scenes/obstacles/spikes/spikes.tscn" id="7_trceg"]
 [ext_resource type="Script" uid="uid://dyjp1p2chb4uv" path="res://scenes/camera.gd" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://brs6yaycnyyks" path="res://scenes/boss_spawner/boss_spawner.tscn" id="10_eb6dy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
 font_size = 48
@@ -295,6 +296,9 @@ position = Vector2(7537, -2735)
 
 [node name="WestDoor" parent="Map/NormalRoom6/Doors" index="3" node_paths=PackedStringArray("connected_door")]
 connected_door = NodePath("../../../ElRoom2/Doors/WestDoor")
+
+[node name="BossSpawner" parent="Map/NormalRoom6" instance=ExtResource("10_eb6dy")]
+position = Vector2(-5931, -5253)
 
 [node name="MainUI" parent="." instance=ExtResource("5_tbgi4")]
 unique_name_in_owner = true

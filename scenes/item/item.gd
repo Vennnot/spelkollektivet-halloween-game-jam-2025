@@ -2,6 +2,7 @@ class_name Item
 extends Node2D
 
 signal taken_away
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @onready var sprite: Sprite2D = %Sprite
 @onready var ghost: Sprite2D = %Ghost
@@ -21,6 +22,7 @@ func update_visuals():
 
 
 func take_away():
+	animation_player.stop()
 	ghost.show()
 	EnemySpawner.update_variables(resource)
 	var tween := create_tween()

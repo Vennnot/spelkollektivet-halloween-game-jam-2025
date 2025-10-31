@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://brs6yaycnyyks"]
+
+[ext_resource type="Script" uid="uid://c1ewyb28hh7xv" path="res://scenes/boss_spawner/boss_spawner.gd" id="1_c6qsj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hj0rd"]
+radius = 323.87805
+
+[node name="BossSpawner" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_c6qsj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hj0rd")
