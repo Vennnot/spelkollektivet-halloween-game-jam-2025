@@ -616,14 +616,16 @@ script = ExtResource("8_tipki")
 [node name="Label" type="Label" parent="."]
 z_index = -5
 offset_left = -216.0
-offset_top = -165.0
+offset_top = -247.0
 offset_right = 227.0
-offset_bottom = 182.0
+offset_bottom = 240.0
 text = "MOVE: W,A,S,D
 
 SHOOT: SPACEBAR
 
-PICK UP ITEMS: Z"
+PICK UP ITEMS: Z
+
+PAUSE: P"
 label_settings = SubResource("LabelSettings_tefeu")
 horizontal_alignment = 1
 

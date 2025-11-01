@@ -21,7 +21,8 @@ extends Node
 
 @export_category("Music")
 @export var music_library: Dictionary = {
-	"forest": null,
+	"boss": preload("uid://cnsqg4ae0swg3"),
+	"music":preload("uid://dus7jmygpnesw")
 }
 
 @onready var current_music: AudioStreamPlayer = %CurrentMusic
@@ -39,6 +40,8 @@ func play(sound: String, sound_bus: String = "sfx"):
 		#audio_player.bus = sound_bus
 		audio_player.play(0.0)
 		audio_player.pitch_scale += randf_range(-0.05, 0.05)
+		if sound == "item_abandoned":
+			audio_player.volume_db = -5
 		await audio_player.finished
 		audio_player.queue_free()
 	elif sound_bus == "music":

@@ -2,6 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 const PICKUP_HEALTH = preload("uid://c7w0femtixw5y")
+const ENEMY_DEATH_EXPLOSION = preload("uid://b2ax2g5rf4q04")
 
 @export var explosion : PackedScene = load("res://scenes/enemies/bomb_enemy/explosion.tscn")
 @export var health_component: HealthComponent
@@ -95,8 +96,11 @@ func _on_pomegranate_timer_timeout():
 func _on_death()->void:
 	visuals.modulate = Color.WHITE
 	sprite.modulate = Color.WHITE
-	visuals.self_modulate = Color.WHITE
+	visuals.self_modulate = Color.TRANSPARENT
 	sprite.self_modulate = Color.WHITE
+	var d := ENEMY_DEATH_EXPLOSION.instantiate()
+	get_tree().get_first_node_in_group("entities").add_child(d)
+	d.global_position = global_position
 	Events.enemy_died.emit(sprite.texture)
 	defeated = true
 	spawn_health()
